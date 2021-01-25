@@ -1,12 +1,7 @@
-
-import BlogPage from "../components/blogPage/BlogPage"
-
-
+import Index from "../components/blog/Index";
 
 const Blog = () => {
-    return (
-        <BlogPage/>
-    )
+  return <Index />;
 }
 
-export default  Blog
+export default Blog
