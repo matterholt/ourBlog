@@ -1,12 +1,12 @@
 export default function SocialLinks(){
-return(<div class="flex w-1/2 justify-end content-center">
+return(<div className="flex w-1/2 justify-end content-center">
   <a
-    class="inline-block text-gray-500 no-underline hover:text-gray-600 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 avatar"
+    className="inline-block text-gray-500 no-underline hover:text-gray-600 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 avatar"
     data-tippy-content="@twitter_handle"
     href="https://twitter.com/intent/tweet?url=#"
   >
     <svg
-      class="fill-current h-4"
+      className="fill-current h-4"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 32 32"
     >
@@ -14,12 +14,12 @@ return(<div class="flex w-1/2 justify-end content-center">
     </svg>
   </a>
   <a
-    class="inline-block text-gray-500 no-underline hover:text-gray-600 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 avatar"
+    className="inline-block text-gray-500 no-underline hover:text-gray-600 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 avatar"
     data-tippy-content="#facebook_id"
     href="https://www.facebook.com/sharer/sharer.php?u=#"
   >
     <svg
-      class="fill-current h-4"
+      className="fill-current h-4"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 32 32"
     >

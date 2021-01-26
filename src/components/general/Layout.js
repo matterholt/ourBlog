@@ -15,7 +15,7 @@ const Main = ({ children }) => (
 
 export default function Layout({ children }) {
   return (
-    <div className="bg-gray-200 font-sans leading-normal tracking-normal">
+    <div className="bg-white font-sans leading-normal tracking-normal">
       <Nav />
       <Header />
       <Main>
