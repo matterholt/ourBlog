@@ -2,7 +2,6 @@ import { getAllPostsForHome } from '../lib/api'
 import Landing from "../components/Landing/index"
 
 
-
 function Home(props) {
   const firstPost = props.allPost[0]
   return (

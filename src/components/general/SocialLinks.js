@@ -1,5 +1,6 @@
 export default function SocialLinks(){
-return(<div className="flex w-1/2 justify-end content-center">
+  return (
+    <div>
   <a
     className="inline-block text-gray-500 no-underline hover:text-gray-600 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 avatar"
     data-tippy-content="@twitter_handle"

@@ -1,32 +1,35 @@
-import HeroImage from './HeroImage'
+import SocialLinks from "./SocialLinks"
 
-const Title = ({ children }) => (
-  <div className="m-10 bg-white bg-opacity-40 text-center p-10 col-start-2 row-start-1">
-    <h1 className="text-gray-700 font-extrabold text-3xl md:text-5xl">
+const Icon = () => (
+          <img src="./mainImg/icon.png" />
+)
+
+const Title = () => (
+    <h1 className="text-gray-700 font-extrabold text-xl md:text-5xl">
       Root and Blush
     </h1>
-    <p className="text-xl md:text-2xl text-gray-500">Beauty though natural</p>
-    {children}
-  </div>
 );
-
-
-const QuickLinks = [
-  
-]
+const Subtitle = () => (
+      <p className="text-xl md:text-xs text-gray-500">
+      Realistic step to clean and beautiful living for the whole family
+    </p>
+)
 
 export default function Header() {
   return (
-    <div className="mt-0 w-screen mx-auto relative my-10">
-      <HeroImage />
-      <div className="absolute inset-0 grid grid-cols-3 grid-rows-3">
+    <div
+      style={{ backgroundColor: "#fdefec" }}
+      className="mt-0 mx-auto h-auto grid grid-rows-2 grid-col-3 place-items-center"
+    >
+      <div className="col-start-2 row-start-1 ">
+        <Icon />
+      </div>
+      <div className="font-serf text-center  col-start-2 row-start-2">
         <Title />
-          <ul className="flex justify-between p-10 row-start-3 col-span-3">
-            <li>Recipes</li>
-            <li>Makeup</li>
-            <li>Household</li>
-          </ul>
-
+        <Subtitle />
+      </div>
+      <div className="row-start-1 justify-self-end col-start-3 self-start">
+        <SocialLinks />
       </div>
     </div>
   );};
