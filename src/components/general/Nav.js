@@ -1,11 +1,11 @@
 import LinkRoutes from "./LinkRoutes"
+import SocialLinks from "./SocialLinks";
 
 export default function Nav({ children }) {
   return (
-    <nav className="mt-0 w-full flex">
-      <div className="container mx-auto items-center">
+    <nav className="container w-full flex justify-between">
         <LinkRoutes />
-      </div>
+        <SocialLinks />
     </nav>
   );}
 

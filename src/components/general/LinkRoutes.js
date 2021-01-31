@@ -37,7 +37,7 @@ const LinkTypeStyleContainer = ({ linkType, path, name }) => {
 
 export default function LinkRoutes() {
   return (
-      <ul className="list-reset flex justify-center text-sm">
+      <ul className="list-reset flex justify-center items-center text-sm">
         {routes.map((link) => (
           <li className="mr-2" key={link.id}>
             <LinkTypeStyleContainer

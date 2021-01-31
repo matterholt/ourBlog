@@ -8,7 +8,7 @@ import HeroImage from "./HeroImage"
 
 
 const Main = ({ children }) => (
-  <div className="container px-4 md:px-0 max-w-7xl mx-auto ">
+  <div className="container px-4  max-w-7xl mx-auto ">
     {children}
   </div>
 );
@@ -16,8 +16,8 @@ const Main = ({ children }) => (
 export default function Layout({ children }) {
   return (
     <div className="bg-white font-sans leading-normal tracking-normal">
-      <Header />
       <Nav />
+      <Header />
       <Main>
         {children}
         {/* <Subscribe />

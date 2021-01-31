@@ -1,4 +1,3 @@
-import SocialLinks from "./SocialLinks"
 
 const Icon = () => (
           <img src="./mainImg/icon.png" />
@@ -19,17 +18,14 @@ export default function Header() {
   return (
     <div
       style={{ backgroundColor: "#fdefec" }}
-      className="mt-0 mx-auto h-auto grid grid-rows-2 grid-col-3 place-items-center"
+      className="mb-4 mx-auto h-auto grid grid-rows-2 place-items-center"
     >
-      <div className="col-start-2 row-start-1 ">
+      <div className="col-start-1 row-start-1 ">
         <Icon />
       </div>
-      <div className="font-serf text-center  col-start-2 row-start-2">
+      <div className="font-serf text-center  col-start-1 row-start-2">
         <Title />
         <Subtitle />
-      </div>
-      <div className="row-start-1 justify-self-end col-start-3 self-start">
-        <SocialLinks />
       </div>
     </div>
   );};
