@@ -1,7 +1,13 @@
-import Index from "../components/blog/Index";
+import BlogPage from "../components/blog/Index";
+import { useRouter } from 'next/router';
 
-const Blog = () => {
-  return <Index />;
+function Blog() {
+  const router = useRouter()
+  return (
+    <BlogPage>
+      <h1>BLOG Page for {router.query.tag || 'all post'}</h1>
+    </BlogPage>
+  );
 }
 
 export default Blog

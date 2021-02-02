@@ -2,3 +2,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer components {
+    .hover_Card_before:hover{
+        z-index:100;
+        background-color:white;
+        box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
+    }
+}

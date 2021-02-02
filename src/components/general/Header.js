@@ -16,15 +16,13 @@ const Subtitle = () => (
 
 export default function Header() {
   return (
-    <div
-      style={{ backgroundColor: "#fdefec" }}
-      className="mb-4 mx-auto h-auto grid grid-rows-2 place-items-center"
+    <div className="mb-4 mx-auto h-auto grid grid-rows-3 place-items-center"
     >
-      <div className="col-start-1 row-start-1 ">
+        <Title />
+      <div className="col-start-1 row-start-2 ">
         <Icon />
       </div>
-      <div className="font-serf text-center  col-start-1 row-start-2">
-        <Title />
+      <div className="font-serf text-center  col-start-1 row-start-3">
         <Subtitle />
       </div>
     </div>
