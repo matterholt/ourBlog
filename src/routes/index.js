@@ -1,12 +1,15 @@
 const homeRoute = { id: 0, path: "/", name: "Home", attribute: "primary" };
+const future__TEM = [
+  
+];
+
 
 const webpageRoutes = [
   {
     id: 1,
-    path: "/blog",
-    name: "Blog",
+    path: "/services",
+    name: "Services",
     attribute: "primary",
-    subRoutes: "blogRoutes",
   },
   {
     id: 2,
@@ -15,8 +18,17 @@ const webpageRoutes = [
     attribute: "primary",
     subRoutes: "blogRoutes",
   },
- 
-  { id: 5, path: "/#", name: "SHOP", attribute: "secondary" },
+  { id: 3, path: "/shop", name: "Shop", attribute: "primary" },
+  { id: 4, path: "/opportunity", name: "Opportunity", attribute: "primary" },
+
+  {
+    id: 5,
+    path: "/blog",
+    name: "Blog",
+    attribute: "primary",
+    subRoutes: "blogRoutes",
+  },
+  { id: 6, path: "/contact", name: "contact", attribute: "primary" },
 ];
 
 const blogRoutes = [

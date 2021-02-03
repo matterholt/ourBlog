@@ -3,14 +3,14 @@ import Link from 'next/link'
 
 const PrimaryAtag = ({path, name }) => (
   <Link href={path}>
-      <a className="inline-block py-2 px-4 text-gray-700 no-underline hover:underline">
+      <a className="inline-block py-2 px-4 text-gray-100 no-underline hover:underline">
         {name}
     </a>
     </Link>
 );
 const SecondaryAtag = ({ path , name }) => (
   <Link href={path}>
-      <a className="inline-block text-gray-400 no-underline hover:text-gray-500 hover:underline py-2 px-4">
+      <a className="inline-block text-gray-100 no-underline hover:text-gray-500 hover:underline py-2 px-4">
         {name}
     </a>
     </Link>
@@ -24,14 +24,9 @@ const LinkTypeStyleContainer = ({ linkType, path, name }) => {
   }
 };
 
-export default function LinkRoutes({homeRoute, webpageRoutes }) {
+export default function LinkRoutes({webpageRoutes }) {
   return (
-    <ul className="list-reset flex justify-center items-center text-sm">
-      <LinkTypeStyleContainer
-        path={homeRoute.path}
-        linkType={homeRoute.attribute}
-        name={homeRoute.name.toUpperCase()}
-      />
+    <ul className="list-reset flex justify-center items-center text-sm col-span-2" >
       {webpageRoutes.map((link) => (
         <li className="mr-2" key={link.id}>
           <LinkTypeStyleContainer

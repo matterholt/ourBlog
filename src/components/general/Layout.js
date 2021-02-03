@@ -1,5 +1,5 @@
 import Header from "../general/Header";
-import Nav from "../general/Nav";
+import Nav from "../Nav/index";
 import Subscribe from "../general/Subscribe";
 import Author from "../general/Author";
 import Footer from "../general/Footer";
