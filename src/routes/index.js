@@ -34,7 +34,7 @@ const webpageRoutes = [
 const blogRoutes = [
   {
     id: 1,
-    image: "https://source.unsplash.com/collection/225/300x500",
+    image: "/mainImg/applyMakeupOthers.jpg",
     path: "/blog",
     tag: "clean_beauty",
     title: "Clean Beauty",
@@ -42,7 +42,7 @@ const blogRoutes = [
   },
   {
     id: 2,
-    image: "https://source.unsplash.com/collection/226/300x500",
+    image: "/mainImg/coffee.jpg",
     path: "/blog",
     tag: "lifestyle",
     title: "Lifestyle",
@@ -50,7 +50,7 @@ const blogRoutes = [
   },
   {
     id: 3,
-    image: "https://source.unsplash.com/collection/227/300x500",
+    image: "/mainImg/bowlFood.jpg",
     path: "/blog",
     tag: "recipes",
     title: "Recipes",
@@ -58,7 +58,7 @@ const blogRoutes = [
   },
   {
     id: 4,
-    image: "https://source.unsplash.com/collection/228/300x500",
+    image: "/mainImg/applyMakeupSelf.jpg",
     path: "/blog",
     tag: "safe_products",
     title: "Safe Products",

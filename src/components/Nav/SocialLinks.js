@@ -2,7 +2,7 @@ import IconFaceBook from "../svg/IconFaceBook"
 
 export default function SocialLinks() {
   return (
-    <div className="col-start-3 self-end">
+    <div className="col-start-3 justify-self-end ">
       <a
         className="inline-block text-gray-500 no-underline hover:text-gray-600 hover:text-underline text-center h-10 p-2 md:h-auto md:p-4 avatar"
         data-tippy-content="@twitter_handle"

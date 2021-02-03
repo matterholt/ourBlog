@@ -1,11 +1,7 @@
 import TitleSvg from "../svg/Title"
 import Logo from "../svg/Logo";
 
-const Title = () => (
-    <h1 className="text-gray-700 font-extrabold text-xl md:text-5xl">
-      Root and Blush
-    </h1>
-);
+import HomeLink from "../Nav/HomeLink"
 
 
 const Subtitle = () => (
@@ -17,7 +13,10 @@ const Subtitle = () => (
 export default function Header() {
   return (
     <div className=" mb-4 mx-auto h-auto grid grid-rows-3 place-items-center">
+      <HomeLink>
       <Logo />
+
+      </HomeLink>
       <div className="col-start-1 row-start-2 ">
         <TitleSvg />
       </div>

@@ -26,7 +26,7 @@ const LinkTypeStyleContainer = ({ linkType, path, name }) => {
 
 export default function LinkRoutes({webpageRoutes }) {
   return (
-    <ul className="list-reset flex justify-center items-center text-sm col-span-2" >
+    <ul className="list-reset flex justify-center items-center text-sm col-start-2" >
       {webpageRoutes.map((link) => (
         <li className="mr-2" key={link.id}>
           <LinkTypeStyleContainer

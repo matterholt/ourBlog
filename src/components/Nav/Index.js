@@ -1,6 +1,6 @@
 import LinkRoutes from "./LinkRoutes"
 import SocialLinks from "./SocialLinks";
-import HomeLink from "../general/HomeLink";
+import HomeLink from "./HomeLink";
 
 import {
   webpageRoutes,

@@ -1,56 +1,8 @@
-import Link from 'next/link';
 
 import HeroArticle from "../heroArticle";
 import Layout from "../general/Layout";
-import Post from "../articles/Posts"
-import image from "next/image";
 
-
-import {blogRoutes } from "../../routes/index"
-
-const GlassContainer = ({ children }) => (
-  <div
-    className="w-full text-center p-5 top-1/4 left-0 absolute transition-all translateZUpdate"
-  >
-    {children}
-  </div>
-);
-
-
-
-
-
-const ImageLink = ({ linkData }) => {
-  const { image, path, title,tag } = linkData;
-  return (
-    <Link
-      href={{
-        pathname: path,
-        query: { tag },
-      }}
-    >
-      <a className="w-1/4 m-1 relative transition-all containerAction">
-        <img
-          src={image}
-          style={{ backfaceVisibility: "hidden" }}
-          className="opacity-75 hover:opacity-100 "
-        />
-        <GlassContainer >
-          <h2>{title}</h2>
-        </GlassContainer>
-      </a>
-    </Link>
-  );
-};
-
-
-const LandingImages = () => (
-  <div className="flex flex-row flex-grow flex-shrink justify-evenly mb-10 ">
-    {blogRoutes.map((linkData) => {
-      return <ImageLink key={linkData.id} linkData={linkData} />;
-    })}
-  </div>
-);
+import QuickBogLink from "./QuickBlogLink"
 
 
 const Intro = () => (
@@ -67,7 +19,7 @@ const Intro = () => (
 export default function Landing() {
   return (
     <Layout>
-      <LandingImages />
+      <QuickBogLink />
       <Intro />
       <h3 className="text-center">Latest Post</h3>
       {/* <HeroArticle post={LeadPost} /> */}

@@ -4,7 +4,6 @@ import Subscribe from "../general/Subscribe";
 import Author from "../general/Author";
 import Footer from "../general/Footer";
 
-import HeroImage from "./HeroImage"
 
 
 const Main = ({ children }) => (
@@ -20,8 +19,8 @@ export default function Layout({ children }) {
       <Header />
       <Main>
         {children}
-        {/* <Subscribe />
-        <Author /> */}
+        <Subscribe />
+        <Author />
       </Main>
       <Footer />
     </div>
