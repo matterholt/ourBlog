@@ -8,27 +8,36 @@ import image from "next/image";
 
 import {blogRoutes } from "../../routes/index"
 
-const GlassContainer = ({children}) => (
-    <div style={{backgroundColor: "rgb(255 255 255 / 38%)",backdropFilter: " blur(5px)"} }>
-      {children}
+const GlassContainer = ({ children }) => (
+  <div
+    className="w-full text-center p-5 top-1/4 left-0 absolute transition-all translateZUpdate"
+  >
+    {children}
   </div>
-
 );
+
+
+
+
 
 const ImageLink = ({ linkData }) => {
   const { image, path, title,tag } = linkData;
   return (
-    <Link href={{
-      pathname: path,
-      query: {tag}
-    }}>
-      <a className="hover_Card_before w-1/4 m-1 relative transform transition-all hover:scale-110 hover:z-index">
-        <div className="absolute bg-white-900 w-auto h-auto inset-0  grid place-items-center ">
-          <GlassContainer>
-            <h2>{title}</h2>
-          </GlassContainer>
-        </div>
-        <img src={image} />
+    <Link
+      href={{
+        pathname: path,
+        query: { tag },
+      }}
+    >
+      <a className="w-1/4 m-1 relative transition-all containerAction">
+        <img
+          src={image}
+          style={{ backfaceVisibility: "hidden" }}
+          className="opacity-75 hover:opacity-100 "
+        />
+        <GlassContainer >
+          <h2>{title}</h2>
+        </GlassContainer>
       </a>
     </Link>
   );
