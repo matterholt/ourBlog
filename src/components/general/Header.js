@@ -12,15 +12,14 @@ const Subtitle = () => (
 
 export default function Header() {
   return (
-    <div className=" mb-4 mx-auto h-auto grid grid-rows-3 place-items-center">
+    <div className=" mb-4 mx-auto h-auto grid grid-rows-2 place-items-center">
       <HomeLink>
-      <Logo />
-
-      </HomeLink>
-      <div className="col-start-1 row-start-2 ">
+      {/* <Logo /> */}
+      <div className="col-start-1 row-start-1">
         <TitleSvg />
       </div>
-      <div className="font-serf text-center  col-start-1 row-start-3">
+      </HomeLink>
+      <div className="font-serf text-center  col-start-1 row-start-2">
         <Subtitle />
       </div>
     </div>

@@ -1,8 +1,8 @@
 import Header from "../general/Header";
 import Nav from "../Nav/index";
-import Subscribe from "../general/Subscribe";
-import Author from "../general/Author";
+
 import Footer from "../general/Footer";
+import Head from "next/head";
 
 
 
@@ -14,15 +14,21 @@ const Main = ({ children }) => (
 
 export default function Layout({ children }) {
   return (
-    <div className="bg-white font-sans leading-normal tracking-normal">
-      <Nav />
-      <Header />
-      <Main>
-        {children}
-        <Subscribe />
-        <Author />
-      </Main>
-      <Footer />
+    <div>
+      <Head>
+        <title>Root and Blush</title>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+
+      <div className="bg-white font-sans leading-normal tracking-normal">
+        <Nav />
+        <Header />
+        <Main>
+          {children}
+        </Main>
+        <Footer />
+      </div>
     </div>
   );
 }

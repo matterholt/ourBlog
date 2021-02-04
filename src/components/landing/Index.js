@@ -1,13 +1,16 @@
 
-import HeroArticle from "../heroArticle";
+import LatestBlogPost from "../LatestBlogPost";
 import Layout from "../general/Layout";
+
+import Subscribe from "../general/Subscribe";
+import Author from "../general/Author";
 
 import QuickBogLink from "./QuickBlogLink"
 
 
-const Intro = () => (
-  <div className="w-auto h-96 grid place-items-center">
-    <div  className="bg-black text-white flex justify-center">
+const PurposeBlip = () => (
+  <div className="container bg-white m-1 w-auto h-96 grid place-items-center">
+    <div  className="flex justify-center">
       <h2 className="m-0 p-0 self-center">
         This is what I'm about and what i do.
       </h2>
@@ -16,13 +19,14 @@ const Intro = () => (
 );
 
 
-export default function Landing() {
+export default function Landing({post}) {
   return (
     <Layout>
       <QuickBogLink />
-      <Intro />
-      <h3 className="text-center">Latest Post</h3>
-      {/* <HeroArticle post={LeadPost} /> */}
+      <LatestBlogPost post={post} />
+      <PurposeBlip />
+      <Subscribe />
+      {/* <Author /> */}
     </Layout>
   );
 }
