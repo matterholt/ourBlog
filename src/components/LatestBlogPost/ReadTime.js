@@ -1,6 +1,6 @@
 export default function ReadTime() {
     return(
-  <div className="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow-lg p-6">
+  <div className="flex-none mt-auto bg-white  overflow-hidden p-6">
     <div className="flex items-center justify-between">
       <img
         className="w-8 h-8 rounded-full mr-4 avatar"
