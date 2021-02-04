@@ -1,27 +1,21 @@
-import { getAllPostsForHome } from '../lib/api'
-import Landing from "../components/Landing/index"
-import Head from "next/head";
+import LandingPage from "../components/Landing/Index"
+import { getLatestPostForHome } from "../lib/api";
 
 function Home(props) {
  
   return (
     <div>
-      <Head>
-        <title>Root and Blush</title>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
-      <Landing />
+      <LandingPage post={props.latestPost} />
     </div>
   );
 }
 
-// export async function getStaticProps({ preview = false }) {
-//   const allPost = await getAllPostsForHome(preview)
-//   return {
-//     props: { allPost, preview },
-//     revalidate: 1,
-//   }
-// }
+export async function getStaticProps({ preview = false }) {
+  const latestPost = await getLatestPostForHome(preview);
+  return {
+    props: { latestPost, preview },
+    revalidate: 1,
+  };
+}
 
 export default Home

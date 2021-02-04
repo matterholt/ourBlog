@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import Layout from "../general/Layout";
+
 import Image from "next/image";
 
 import { blogRoutes } from "../../routes/index";
@@ -20,11 +20,11 @@ const ImageLink = ({ linkData }) => {
         query: { tag },
       }}
     >
-      <a className="w-1/4 m-1 relative transition-all containerAction">
+      <a className="lg:w-1/4 md:w-2/5 w-full m-1 relative transition-all containerAction">
         <Image
           style={{ backfaceVisibility: "hidden" }}
-          className="opacity-75 hover:opacity-100 "
-          src={ image}
+          className="opacity-80 hover:opacity-100 "
+          src={image}
           layout="responsive"
           width={375}
           height={500}
@@ -38,10 +38,10 @@ const ImageLink = ({ linkData }) => {
 };
 
 export default function QuickBogLink() {
-    return(
-  <div className="flex flex-row flex-grow flex-shrink justify-evenly mb-10 ">
-    {blogRoutes.map((linkData) => {
-      return <ImageLink key={linkData.id} linkData={linkData} />;
-    })}
-  </div>
-)};
+    return (
+      <div className="my-10 flex flex-wrap lg:flex-nowrap justify-evenly">
+        {blogRoutes.map((linkData) => {
+          return <ImageLink key={linkData.id} linkData={linkData} />;
+        })}
+      </div>
+    );};

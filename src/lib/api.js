@@ -26,8 +26,17 @@ const postFields = `
 const getClient = (preview) => (preview ? previewClient : client)
 
 export async function getAllPostsForHome(preview) {
-  const results = await getClient(preview).fetch(`*[_type == "post"] | order(publishedAt desc){
+  const results = await getClient(preview)
+    .fetch(`*[_type == "post"] | order(publishedAt desc){
             ${postFields}
-        }`)
-  return getUniquePosts(results)
+        }`);
+  return getUniquePosts(results);
+}
+
+
+export async function getLatestPostForHome(preview) {
+  const results = await getClient(preview).fetch(`*[_type == "post"][0]{
+            ${postFields}
+        }`);
+  return results;
 }
