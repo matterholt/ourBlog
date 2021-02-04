@@ -1,13 +1,27 @@
 import Link from 'next/link'
- 
+ import { useRouter } from "next/router";
 
-const PrimaryAtag = ({path, name }) => (
+
+const PrimaryAtag = ({ path, name }) => {
+  const router = useRouter();
+
+      const style = {
+        marginRight: 10,
+        borderBottom:
+          router.pathname === path
+            ? "2px solid #ffffff6b"
+            : "none",
+      };
+return (
   <Link href={path}>
-      <a className="inline-block py-2 px-4 text-gray-100 no-underline hover:underline">
-        {name}
+    <a
+      style={style}
+      className="hover:underlineinline-block py-2 px-4 text-gray-100 no-underline py-2 px-4"
+    >
+      {name}
     </a>
-    </Link>
-);
+  </Link>
+);};
 const SecondaryAtag = ({ path , name }) => (
   <Link href={path}>
       <a className="inline-block text-gray-100 no-underline hover:text-gray-500 hover:underline py-2 px-4">
@@ -24,9 +38,12 @@ const LinkTypeStyleContainer = ({ linkType, path, name }) => {
   }
 };
 
-export default function LinkRoutes({webpageRoutes }) {
+export default function LinkRoutes({ webpageRoutes }) {
+
+
+  
   return (
-    <ul className="list-reset flex justify-center items-center text-sm col-start-2" >
+    <ul className="list-reset flex justify-center items-center text-sm col-start-2">
       {webpageRoutes.map((link) => (
         <li className="mr-2" key={link.id}>
           <LinkTypeStyleContainer

@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import Title from "../svg/Title"
+import Title from "../svg/SiteName"
 
 import {
   homeRoute,
@@ -11,7 +11,7 @@ export default function HomeLink({ children }) {
   return (
     <Link href={homeRoute.path}>
       <a>
-        {children || 'HOME'} 
+        {children || homeRoute.name.toUpperCase()}
         {/* <Title /> */}
       </a>
     </Link>
