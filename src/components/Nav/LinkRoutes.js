@@ -16,7 +16,7 @@ return (
   <Link href={path}>
     <a
       style={style}
-      className="hover:underlineinline-block py-2 px-4 text-gray-100 no-underline py-2 px-4"
+      className="hover:underline inline-block py-2 px-4 text-gray-100 no-underline py-2 px-4"
     >
       {name}
     </a>

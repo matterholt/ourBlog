@@ -10,7 +10,7 @@ import {
 export default function HomeLink({ children }) {
   return (
     <Link href={homeRoute.path}>
-      <a>
+      <a className="self-center">
         {children || homeRoute.name.toUpperCase()}
         {/* <Title /> */}
       </a>

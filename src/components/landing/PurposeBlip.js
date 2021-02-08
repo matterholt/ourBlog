@@ -2,7 +2,7 @@ import Image from "next/image"
 
 export default function PurposeBlip() {
     return (
-      <div className="container  m-1 w-auto h-96">
+      <div className="container my-20 w-auto h-96">
         <div className="w-1/4 h-1/4">
           <Image
             src={"/mainImg/profilePic.png"}

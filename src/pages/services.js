@@ -1,9 +1,10 @@
 import Layout from "../components/general/Layout"
+import Services from "../components/services/index"
 
 export default function services() {
     return (
             <Layout>
- <h2>Services</h2>
+        <Services/>
     </Layout>
     )
 }

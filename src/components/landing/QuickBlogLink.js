@@ -39,7 +39,7 @@ const ImageLink = ({ linkData }) => {
 
 export default function QuickBogLink() {
     return (
-      <div className="my-10 flex flex-wrap lg:flex-nowrap justify-evenly">
+      <div className="container my-20 flex flex-wrap lg:flex-nowrap justify-evenly">
         {blogRoutes.map((linkData) => {
           return <ImageLink key={linkData.id} linkData={linkData} />;
         })}

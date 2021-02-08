@@ -5,22 +5,18 @@ import HomeLink from "../Nav/HomeLink"
 
 
 const Subtitle = () => (
-      <p className="text-xl md:text-xs text-gray-500">
+      <p className="text-xl md:text-xs m-5 text-gray-500">
       Realistic step to clean and beautiful living for the whole family
     </p>
 )
 
 export default function Header() {
   return (
-    <div className=" mb-4 mx-auto h-auto grid grid-rows-2 place-items-center">
+    <div className="my-20 flex flex-col font-serf text-center ">
       <HomeLink>
-        <div className="col-start-1 row-start-1">
-          <SiteName />
-        </div>
+        <SiteName />
       </HomeLink>
-      <div className="font-serf text-center  col-start-1 row-start-2">
-        <Subtitle />
-      </div>
+      <Subtitle />
     </div>
   );};
 

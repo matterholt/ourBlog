@@ -9,7 +9,7 @@ import { webpageRoutes, homeRoute } from "../../routes/index";
 export default function Nav() {
   return (
     <nav
-      className="mb-4 mx-auto text-gray-100 container w-full items-center grid grid-col-3"
+      className="text-gray-100 items-center grid grid-col-3"
       style={{ backgroundColor: "#E3B8A7" }}
     >
       <HomeLink >

@@ -7,7 +7,7 @@ import Head from "next/head";
 
 
 const Main = ({ children }) => (
-  <div className="container px-4  max-w-7xl mx-auto ">
+  <div className="container md:px-4  max-w-7xl mx-auto ">
     {children}
   </div>
 );
@@ -21,7 +21,7 @@ export default function Layout({ children }) {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
 
-      <div className="bg-white font-sans leading-normal tracking-normal">
+      <div className="bg-white font-sans leading-normal tracking-normal 2xl:mx-20">
         <Nav />
         <Header />
         <Main>

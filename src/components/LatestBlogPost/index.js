@@ -18,7 +18,6 @@ const Post = (post) => (
 );
 */
 
-
 function Article({ children }) {
   return (
     <div className="flex-1 bg-white  overflow-hidden ">
@@ -42,7 +41,7 @@ const RelatedTag = ({slug }) => (
 
 export default function HeroArticle({post}) {
   return (
-    <div className="my-10 flex justify-center h-full bg-white overflow-hidden">
+    <div className="container my-20 w-auto flex h-full bg-white overflow-hidden">
       <a
         href="post.html"
         className="flex flex-wrap no-underline hover:no-underline"
