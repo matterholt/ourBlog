@@ -4,15 +4,20 @@ import Nav from "../Nav/index";
 import Footer from "../general/Footer";
 import Head from "next/head";
 
+import { useRouter } from "next/router";
+
+import PageTitle from "../general/PageTitle";
+
 
 
 const Main = ({ children }) => (
-  <div className="container md:px-4  max-w-7xl mx-auto ">
+  <div className="container md:px-4  max-w-7xl mx-auto min-h-screen">
     {children}
   </div>
 );
 
 export default function Layout({ children }) {
+  const router = useRouter();
   return (
     <div>
       <Head>
@@ -25,6 +30,7 @@ export default function Layout({ children }) {
         <Nav />
         <Header />
         <Main>
+          <PageTitle routerPathName={router.pathname} />
           {children}
         </Main>
         <Footer />

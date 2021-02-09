@@ -4,7 +4,6 @@ import Link from 'next/link'
 
 const PrimaryAtag = ({ path, name }) => {
   const router = useRouter();
-
       const style = {
         marginRight: 10,
         borderBottom:

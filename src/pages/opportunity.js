@@ -1,9 +1,6 @@
-import Layout from "../components/general/Layout";
-
+import OpportunityPage from "../components/opportunity/index"
 export default function opportunity() {
   return (
-    <Layout>
-      <h2>opportunity</h2>
-    </Layout>
+<OpportunityPage/>
   );
 }

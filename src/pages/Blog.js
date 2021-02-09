@@ -5,7 +5,7 @@ function Blog() {
   const router = useRouter()
   return (
     <BlogPage>
-      <h1>BLOG Page for {router.query.tag || 'all post'}</h1>
+      <h3>{router.query.tag || 'all post'}</h3>
     </BlogPage>
   );
 }

@@ -1,10 +1,10 @@
-import Layout from "../components/general/Layout"
+import AboutPage from "../components/about/index"
 
 function About() {
     return (
-        <Layout>
-        <h1>THIS is what About</h1>
-        </Layout>
+      
+            <AboutPage/>
+ 
         )
 }
     
