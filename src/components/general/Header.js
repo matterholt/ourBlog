@@ -12,9 +12,9 @@ const Subtitle = () => (
 
 export default function Header() {
   return (
-    <div className="my-20 flex flex-col font-serf text-center ">
+    <div className="my-10 h-60 flex flex-col font-serf text-center justify-center">
       <HomeLink>
-        <SiteName />
+          <SiteName />
       </HomeLink>
       <Subtitle />
     </div>

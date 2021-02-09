@@ -20,7 +20,7 @@ const Post = (post) => (
 
 function Article({ children }) {
   return (
-    <div className="flex-1 bg-white  overflow-hidden ">
+    <div className="flex-1 bg-white bg-red-100 overflow-hidden ">
       {children}
     </div>
   );
@@ -41,7 +41,8 @@ const RelatedTag = ({slug }) => (
 
 export default function HeroArticle({post}) {
   return (
-    <div className="container my-20 w-auto flex h-full bg-white overflow-hidden">
+    <div className="container my-10 w-auto justify-center flex flex-col h-full bg-white overflow-hidden">
+      <h2 className="text-center h-16 font-bold text-3xl">Latest Post</h2>
       <a
         href="post.html"
         className="flex flex-wrap no-underline hover:no-underline"
@@ -49,7 +50,6 @@ export default function HeroArticle({post}) {
         <Image />
         <div className="w-full md:w-1/3 flex flex-col flex-grow flex-shrink">
           <Article>
-            <RelatedTag slug={post.slug} />
             <Title title={post.title} />
             <Content body={post.body} />
           </Article>

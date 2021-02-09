@@ -23,7 +23,7 @@ const ImageLink = ({ linkData }) => {
       <a className="lg:w-1/4 md:w-2/5 w-full m-1 relative transition-all containerAction">
         <Image
           style={{ backfaceVisibility: "hidden" }}
-          className="opacity-80 hover:opacity-100 "
+          className="opacity-100 hover:opacity-80 "
           src={image}
           layout="responsive"
           width={375}

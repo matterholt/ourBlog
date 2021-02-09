@@ -1,6 +1,6 @@
 export default function Image () {
   return (
-  <div className="w-full md:w-2/3 rounded-t">
+  <div className="w-1/2">
     <img
       src="https://source.unsplash.com/collection/494263/300x200"
         className="h-full w-full shadow"
