@@ -25,7 +25,6 @@ export default function Layout({ children }) {
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-
       <div className="bg-white font-sans leading-normal tracking-normal 2xl:mx-20">
         <Nav />
         <Header />

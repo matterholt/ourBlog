@@ -1,11 +1,12 @@
-import LandingPage from "../components/Landing/Index"
+import MainLanding from "../components/landing/MainLanding"
 import { getLatestPostForHome } from "../lib/api";
 
 function Home(props) {
  
   return (
     <div>
-      <LandingPage post={props.latestPost} />
+      
+      <MainLanding post={props.latestPost} />
     </div>
   );
 }
