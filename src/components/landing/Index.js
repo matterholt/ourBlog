@@ -16,9 +16,9 @@ import QuickBogLink from "./QuickBlogLink"
 export default function Landing({post}) {
   return (
     <Layout>
+      <PurposeBlip />
       <QuickBogLink />
       <LatestBlogPost post={post} />
-      <PurposeBlip />
       <Subscribe />
       {/* <Author /> */}
     </Layout>

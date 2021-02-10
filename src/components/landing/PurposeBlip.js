@@ -12,7 +12,7 @@ export default function PurposeBlip() {
             <li>᪥ Clean Beauty</li>
             <li>᪥ probably drinking coffee</li>
             <li>᪥ Mama to a cancer survivor</li>
-            <li>᪥ Illustrator @joyfulflourish </li>
+            <li>᪥ Illustrator @joyfulflourish</li>
             <li>᪥ Homeschooling</li>
           </ul>
         </div>
