@@ -2,7 +2,10 @@ import Image from "next/image"
 
 export default function PurposeBlip() {
     return (
-      <div className="container flex justify-center my-20 w-auto h-96">
+      <div
+        style={{ backgroundColor: "#292929" }}
+        className="container flex justify-evenly my-20 w-auto  text-white  "
+      >
         <div className="w-1/4 h-1/4">
           <Image
             src={"/mainImg/profilePic.png"}
@@ -11,7 +14,7 @@ export default function PurposeBlip() {
             height={500}
           />
         </div>
-        <div className="w-1/4 ">
+        <div className="p-5">
           <h2 className="mb-10 p-0 self-center text-center h-16 font-bold text-3xl">
             What I'm about
           </h2>
