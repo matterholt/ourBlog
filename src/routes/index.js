@@ -18,9 +18,8 @@ const webpageRoutes = [
     attribute: "primary",
     subRoutes: "blogRoutes",
   },
-  { id: 3, path: "/shop", name: "Shop", attribute: "primary" },
-  { id: 4, path: "/opportunity", name: "Opportunity", attribute: "primary" },
-
+  { id: 3, path: "/shop", name: "Shop", attribute: "secondary" },
+  { id: 4, path: "/opportunity", name: "Opportunity", attribute: "secondary" },
   {
     id: 5,
     path: "/blog",
@@ -28,7 +27,7 @@ const webpageRoutes = [
     attribute: "primary",
     subRoutes: "blogRoutes",
   },
-  { id: 6, path: "/contact", name: "contact", attribute: "primary" },
+  { id: 6, path: "/contact", name: "contact", attribute: "secondary" },
 ];
 
 const blogRoutes = [

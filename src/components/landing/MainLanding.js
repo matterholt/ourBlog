@@ -17,10 +17,9 @@ export default function Landing({post}) {
   return (
     <Layout>
       <PurposeBlip />
-
-      <QuickBogLink />
+      {/* <QuickBogLink /> */}
       <LatestBlogPost post={post} />
-      <Subscribe />
+      {/* <Subscribe /> */}
       {/* <Author /> */}
     </Layout>
   );

@@ -7,12 +7,11 @@ import {
 } from "../../routes/index";
 
 
-export default function HomeLink({ children }) {
+export default function HomeLinkContainer({ children, styleAttribute }) {
   return (
     <Link href={homeRoute.path}>
-      <a className="self-center">
+      <a className={`${styleAttribute}`}>
         {children || homeRoute.name.toUpperCase()}
-  
       </a>
     </Link>
   );
