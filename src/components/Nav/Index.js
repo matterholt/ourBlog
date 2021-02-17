@@ -1,25 +1,23 @@
-import LinkRoutes from "./LinkRoutes"
-import SocialLinks from "./SocialLinks";
-import HomeLink from "./HomeLink"
-import Logo from "../svg/Logo"
-
-import { webpageRoutes, homeRoute } from "../../routes/index";
+import{useState,useEffect}from 'react'
+import DesktopContainer from './DesktopContainer'
 
 export default function Nav() {
+  const [screenWidth, setScreenWidth] = useState(undefined)
+  const mobileBreak = 640
 
+  useEffect(() => {
+    if (typeof window !== 'undefined'){
+      function handleResize() {
+        setScreenWidth(window.innerWidth)
+      }
+      window.addEventListener("resize", handleResize); 
+      handleResize()
+      return ()=> window.removeEventListener("resize",handleResize)
+}
+  }, [])
+  
+  return screenWidth > mobileBreak ?  <DesktopContainer/>:<h1>Mobile Nav</h1>
 
-
-  return (
-    <nav
-      className="text-gray-100 items-center grid grid-col-3"
-      style={{ backgroundColor: "#E3B8A7" }}
-    >
-      
-      
-
-      <LinkRoutes webpageRoutes={webpageRoutes} />
-      {/* <SocialLinks /> */}
-    </nav>
-  );}
+}
 
 
