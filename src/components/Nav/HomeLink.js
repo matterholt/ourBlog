@@ -12,7 +12,7 @@ export default function HomeLink({ children }) {
     <Link href={homeRoute.path}>
       <a className="self-center">
         {children || homeRoute.name.toUpperCase()}
-        {/* <Title /> */}
+  
       </a>
     </Link>
   );
