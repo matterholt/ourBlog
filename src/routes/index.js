@@ -38,6 +38,7 @@ const blogRoutes = [
 ];
 
 const webpageRoutes = [
+  { id: 0, path: "/", name: "Home", attribute: "home" },
   {
     id: 1,
     path: "/services",

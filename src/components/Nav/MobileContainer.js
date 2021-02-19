@@ -1,36 +1,70 @@
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import HomeLinkContainer from "./HomeLinkContainer";
 import LinkContainer from "./LinkContainer";
 import SiteName from "../svg/SiteName";
 import PageSubtitle from "../general/PageSubtitle";
-
-
+import { webpageRoutes } from "../../routes/index";
 
 
 const Menu = () => {
-    const [isOpen, setIsOpen] = useState(false)
-    if (!isOpen) {
-            return(
-                <div onClick={() => setIsOpen(!isOpen)} className="p-2 bg_custom-dark text-white rounded-sm ">
-              <p>MENU</p>
-            </div>)
+  const [isMenuOpen, setMenuIsOpen] = useState(false)
+  const [subRouteView, setSubRouteView] = useState("close"); 
+
+
+  function handleMenuClose(action) {
+    // controls the closing menu on mobile screen display
+    // useReducer
+    
+    if (action === "closeAll") {
+      setSubRouteView("close");
+      setMenuIsOpen(false);
+    } else if(action === "closeSubRoute") {
+      setSubRouteView("close");
+    } else if (action === "closeMenu") {
+      setMenuIsOpen(false);
     } else {
+      throw Error ("action undefined")
+    }
+    
+  }
+
+
+
+
+
+  if (!isMenuOpen) {
+      
+            return(
+            <button onClick={() => setMenuIsOpen(true)} className="p-2 bg_custom-dark text-white rounded-sm ">
+              MENU
+              </button>)
+    
+    } else {
+
         return (
-          <div
-            onClick={() => setIsOpen(!isOpen)}
-            className="p-2 border-gray-100 border-2 text-gray-400 rounded-sm "
-          >
-                <p>CLOSE</p>
-                <LinkContainer/>
+          <div className="bg-red-100 relative ">
+            <button
+              onClick={() => handleClose("closeMenu")}
+              className="p-2 border-2 rounded-sm "
+            >
+              CLOSE
+            </button>
+            <LinkContainer
+              styleAttribute="flex-col absolute top-12 right-0 bg-red-200"
+              subRouteView={subRouteView}
+              handleMenuClose={handleMenuClose}
+              webpageRoutes={webpageRoutes}
+            />
           </div>
         );
-        }
-}
+    }
+  
+  }
 
 export default function MobileContainer() {
     return (
       <div className="m-5 flex flex-row justify-between items-center">
-        <HomeLinkContainer styleAttribute={"bg-white"}>
+        <HomeLinkContainer >
           <SiteName styles="m-auto" />
           <PageSubtitle />
         </HomeLinkContainer>

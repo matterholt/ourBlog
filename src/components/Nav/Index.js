@@ -4,7 +4,7 @@ import MobileContainer from './MobileContainer'
 
 export default function Nav() {
   const [screenWidth, setScreenWidth] = useState(undefined)
-  const mobileBreak = 640;
+  const mobileBreak = 768;
 
   useEffect(() => {
     if (typeof window !== 'undefined'){
