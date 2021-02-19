@@ -2,6 +2,7 @@ import { useState } from "react";
 import LinkContainer from "./LinkContainer";
 import HomeLinkContainer from "./HomeLinkContainer";
 import SiteName from "../svg/SiteName";
+import PageSubtitle from "../general/PageSubtitle"
 import Logo from "../svg/Logo";
 
 
@@ -14,11 +15,7 @@ const secondaryLinks = webpageRoutes.filter(
   (route) => route.attribute === "secondary"
 );
 
-const Subtitle = () => (
-  <p className="text-sm m-5 text-gray-500">
-    Realistic step to clean and beautiful living for the whole family
-  </p>
-);
+
 
 
 // change layout base on screen size, small have rows with two cols
@@ -47,7 +44,7 @@ export default function DesktopContainer() {
           }
         >
           <SiteName styles="m-auto" />
-          <Subtitle />
+          <PageSubtitle />
         </HomeLinkContainer>
 
         <LinkContainer

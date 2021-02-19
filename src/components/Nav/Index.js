@@ -1,9 +1,10 @@
 import{useState,useEffect}from 'react'
 import DesktopContainer from './DesktopContainer'
+import MobileContainer from './MobileContainer'
 
 export default function Nav() {
   const [screenWidth, setScreenWidth] = useState(undefined)
-  const mobileBreak = 300
+  const mobileBreak = 640;
 
   useEffect(() => {
     if (typeof window !== 'undefined'){
@@ -16,7 +17,7 @@ export default function Nav() {
 }
   }, [])
   
-  return screenWidth > mobileBreak ?  <DesktopContainer/>:<h1>Mobile Nav</h1>
+  return screenWidth > mobileBreak ?  <DesktopContainer/> : <MobileContainer/>
 
 }
 

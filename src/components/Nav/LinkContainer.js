@@ -66,7 +66,7 @@ const SubMenuLinkView = ({subRoutes, subRouteView, setSubRouteView}) => {
 
 
 export default function LinkContainer({
-  webpageRoutes,
+  webpageRoutes=[],
   styleAttribute,
   subRouteView,
   setSubRouteView,
