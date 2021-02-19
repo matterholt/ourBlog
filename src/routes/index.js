@@ -2,34 +2,6 @@ const homeRoute = { id: 0, path: "/", name: "Home", attribute: "primary" };
 const future__TEM = [
   
 ];
-
-
-const webpageRoutes = [
-  {
-    id: 1,
-    path: "/services",
-    name: "Services",
-    attribute: "primary",
-  },
-  {
-    id: 2,
-    path: "/about",
-    name: "About",
-    attribute: "primary",
-    subRoutes: "blogRoutes",
-  },
-  { id: 3, path: "/shop", name: "Shop", attribute: "secondary" },
-  { id: 4, path: "/opportunity", name: "Opportunity", attribute: "secondary" },
-  {
-    id: 5,
-    path: "/blog",
-    name: "Blog",
-    attribute: "primary",
-    subRoutes: "blogRoutes",
-  },
-  { id: 6, path: "/contact", name: "contact", attribute: "secondary" },
-];
-
 const blogRoutes = [
   {
     id: 1,
@@ -64,6 +36,35 @@ const blogRoutes = [
     attribute: "blogFilter",
   },
 ];
+
+const webpageRoutes = [
+  {
+    id: 1,
+    path: "/services",
+    name: "Services",
+    attribute: "primary",
+  },
+  {
+    id: 2,
+    path: "/about",
+    name: "About",
+    attribute: "primary",
+
+  },
+  { id: 3, path: "/shop", name: "Shop", attribute: "secondary" },
+  { id: 4, path: "/opportunity", name: "Opportunity", attribute: "secondary" },
+  {
+    id: 5,
+    path: "/blog",
+    name: "Blog",
+    attribute: "primary",
+    subRoutes: blogRoutes,
+  },
+  { id: 6, path: "/contact", name: "contact", attribute: "secondary" },
+];
+
+// subroutes for blog
+
 
 const socialRoutes = [
   { id: 1, path: "/", name: "FaceBook", attribute: "primary" },
