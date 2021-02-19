@@ -1,4 +1,4 @@
-import {useState}from 'react'
+import { useState } from "react";
 import LinkContainer from "./LinkContainer";
 import HomeLinkContainer from "./HomeLinkContainer";
 import SiteName from "../svg/SiteName";
@@ -15,7 +15,7 @@ const secondaryLinks = webpageRoutes.filter(
 );
 
 const Subtitle = () => (
-  <p className="text-xl md:text-xs m-5 text-gray-500">
+  <p className="text-sm m-5 text-gray-500">
     Realistic step to clean and beautiful living for the whole family
   </p>
 );
@@ -23,32 +23,40 @@ const Subtitle = () => (
 
 // change layout base on screen size, small have rows with two cols
 
+const xLargeScreen = "xl:grid-cols-3 xl:grid-rows-none"; 
+const largeScreen = "lg:grid-cols-2 lg:grid-rows-2"; 
+
+
 export default function DesktopContainer() {
-  const [subRouteView, setSubRouteView] = useState("close"); 
+  const [ subRouteView, setSubRouteView] = useState("close"); 
 
     return (
-      <nav
-        className="md:container md:items-center md:grid md:grid-cols-3 pt-4"
-        // style={{ borderBottom: "2px solid #E3B8A7" }}
-      >
-        
+      <nav className={`pt-4 items-center grid ${largeScreen} ${xLargeScreen}`}>
         <LinkContainer
+          styleAttribute={
+            "lg:row-start-2 lg:col-span-1 xl:col-start-1 xl:row-start-1"
+          }
           webpageRoutes={primaryLinks}
-          styleAttribute={""}
           subRouteView={subRouteView}
           setSubRouteView={setSubRouteView}
         />
 
         <HomeLinkContainer
-          styleAttribute={"justify-self-center text-center m-auto bg-white"}
+          styleAttribute={
+            "lg:row-start-1 lg:col-span-full xl:col-span-1 justify-self-center text-center m-auto bg-white"
+          }
         >
           <SiteName styles="m-auto" />
           <Subtitle />
         </HomeLinkContainer>
+
         <LinkContainer
+          styleAttribute={
+            "lg:row-start-2 lg:col-span-2 xl:col-start-3 xl:row-start-1"
+          }
           webpageRoutes={secondaryLinks}
-          styleAttribute={""}
-          // subRouteViewController={{ subRouteView, setSubRouteView }}
+          subRouteView={subRouteView}
+          setSubRouteView={setSubRouteView}
         />
       </nav>
     );

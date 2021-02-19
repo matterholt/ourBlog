@@ -3,7 +3,7 @@ import DesktopContainer from './DesktopContainer'
 
 export default function Nav() {
   const [screenWidth, setScreenWidth] = useState(undefined)
-  const mobileBreak = 640
+  const mobileBreak = 300
 
   useEffect(() => {
     if (typeof window !== 'undefined'){
