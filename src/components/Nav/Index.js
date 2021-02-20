@@ -16,8 +16,15 @@ export default function Nav() {
       return ()=> window.removeEventListener("resize",handleResize)
 }
   }, [])
-  
-  return screenWidth > mobileBreak ?  <DesktopContainer/> : <MobileContainer/>
+
+  if (screenWidth === undefined) {
+    return null
+  } else if (screenWidth >= mobileBreak) {
+    return <DesktopContainer />
+  } else {
+    return <MobileContainer />
+  }
+
 
 }
 

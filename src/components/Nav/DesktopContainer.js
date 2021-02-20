@@ -30,7 +30,7 @@ export default function DesktopContainer() {
       <nav className={`pt-4 items-center grid ${largeScreen} ${xLargeScreen}`}>
         <LinkContainer
           styleAttribute={
-            "md:row-start-2 md:col-span-1 lg:col-start-1 lg:row-start-1"
+            "md:row-start-2 md:col-span-1 lg:col-start-1 lg:row-start-1 items-center"
           }
           siteMapRoutes={primaryLinks}
           subRouteView={subRouteView}
@@ -48,7 +48,7 @@ export default function DesktopContainer() {
 
         <LinkContainer
           styleAttribute={
-            "md:row-start-2 md:col-span-2 lg:col-start-3 lg:row-start-1"
+            "md:row-start-2 md:col-span-2 lg:col-start-3 lg:row-start-1 items-center"
           }
           siteMapRoutes={secondaryLinks}
           subRouteView={subRouteView}

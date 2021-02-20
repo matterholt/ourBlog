@@ -80,10 +80,10 @@ export default function LinkContainer({
 }) {
   return (
     <ul
-      className={`list-reset flex items-center justify-evenly text-sm ${styleAttribute}`}
+      className={`list-reset flex justify-evenly text-sm ${styleAttribute}`}
     >
       {siteMapRoutes.map((link) => (
-        <li className="mr-2 flex" key={link.id}>
+        <li className="py-4 flex h-14 " key={link.id}>
           {link.subRoutes ? (
             <SubMenuLinkView
               subRouteView={subRouteView}
