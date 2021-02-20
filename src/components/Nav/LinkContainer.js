@@ -2,7 +2,7 @@ import Link from 'next/link'
 import ArrowSVG from "../svg/ArrowDown";
  
 
-const LinkPath = ({ path, name, handleMenu }) => {
+const LinkPath = ({ path, name, menuDispatch }) => {
   return (
     <Link
       href={{
@@ -10,7 +10,7 @@ const LinkPath = ({ path, name, handleMenu }) => {
       }}
     >
       <a
-        onClick={() => handleMenu("closeAll")}
+        onClick={() => menuDispatch({type:"closeAll"})}
         className="hover:underline inline-block py-2 px-4 no-underline py-2 px-4"
       >
         {name}
@@ -19,7 +19,7 @@ const LinkPath = ({ path, name, handleMenu }) => {
   );
 };
 
-const LinkWithQuery = ({ link, handleMenu }) => {
+const LinkWithQuery = ({ link, menuDispatch }) => {
   const { tag, path } = link;
   return (
     <Link
@@ -29,7 +29,7 @@ const LinkWithQuery = ({ link, handleMenu }) => {
       }}
     >
       <a
-        onClick={() => handleMenu("closeAll")}
+        onClick={() => menuDispatch({type:"closeAll"})}
         className="hover:underline inline-block py-2 px-4 no-underline py-2 px-4"
       >
         {tag}
@@ -38,19 +38,13 @@ const LinkWithQuery = ({ link, handleMenu }) => {
   );
 };
 
-const SubMenuLinkView = ({
-  subRoutes,
-  subRouteView,
-  handleMenu,
-}) => {
-  
-  const { routeTitle ,routes} = subRoutes;
-
+const SubMenuLinkView = ({ subRoutes, subRouteView, menuDispatch }) => {
+  const { routeTitle, routes } = subRoutes;
 
   if (subRouteView === routeTitle) {
     return (
       <div className="relative flex">
-        <button onClick={() => handleMenu("closeSubRoute")}>
+        <button onClick={() => menuDispatch({ type: "closeSubRoute" })}>
           <ArrowSVG transform="rotate(180)" />
         </button>
         <div className="absolute top-10 flex flex-col bg_custom-dark">
@@ -58,7 +52,7 @@ const SubMenuLinkView = ({
             <LinkWithQuery
               key={subLink.id}
               link={subLink}
-              handleMenu={handleMenu}
+              menuDispatch={menuDispatch}
             />
           ))}
         </div>
@@ -66,7 +60,11 @@ const SubMenuLinkView = ({
     );
   } else {
     return (
-      <button onClick={() => handleMenu("openSubMenu", routeTitle)}>
+      <button
+        onClick={() =>
+          menuDispatch({ type: "openSubMenu", menuName:routeTitle })
+        }
+      >
         <ArrowSVG />
       </button>
     );
@@ -78,31 +76,29 @@ export default function LinkContainer({
   siteMapRoutes,
   styleAttribute,
   subRouteView,
-  handleMenu,
-})
-{
-
+  menuDispatch,
+}) {
   return (
     <ul
       className={`list-reset flex items-center justify-evenly text-sm ${styleAttribute}`}
     >
       {siteMapRoutes.map((link) => (
-          <li className="mr-2 flex" key={link.id}>
-            {link.subRoutes ? (
-              <SubMenuLinkView
-                subRouteView={subRouteView}
-                subRoutes={link.subRoutes}
-                handleMenu={handleMenu}
-              />
-            ) : null}
-
-            <LinkPath
-              handleMenu={handleMenu}
-              path={link.path}
-              name={link.name.toUpperCase()}
+        <li className="mr-2 flex" key={link.id}>
+          {link.subRoutes ? (
+            <SubMenuLinkView
+              subRouteView={subRouteView}
+              subRoutes={link.subRoutes}
+              menuDispatch={menuDispatch}
             />
-          </li>
-        ))}
+          ) : null}
+
+          <LinkPath
+            menuDispatch={menuDispatch}
+            path={link.path}
+            name={link.name.toUpperCase()}
+          />
+        </li>
+      ))}
     </ul>
   );
 };

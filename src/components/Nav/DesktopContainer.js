@@ -3,8 +3,10 @@ import LinkContainer from "./LinkContainer";
 import HomeLinkContainer from "./HomeLinkContainer";
 import SiteName from "../svg/SiteName";
 import PageSubtitle from "../general/PageSubtitle"
+import { useNavMenuController } from "../../hooks/useNavMenuController";
 
 import { webpageRoutes } from "../../routes/index";
+import { initialMenuState } from "../../lib/initialState";
 
 const { routes } = webpageRoutes;
 
@@ -20,7 +22,9 @@ const xLargeScreen = "lg:grid-cols-3 lg:grid-rows-none";
 const largeScreen = "md:grid-cols-2 md:grid-rows-2"; 
 
 export default function DesktopContainer() {
-  const [ subRouteView, setSubRouteView] = useState("close"); 
+    const [navMenuState, menuDispatch] = useNavMenuController(initialMenuState);
+    const { subRouteView } = navMenuState;
+
 
     return (
       <nav className={`pt-4 items-center grid ${largeScreen} ${xLargeScreen}`}>
@@ -30,7 +34,7 @@ export default function DesktopContainer() {
           }
           siteMapRoutes={primaryLinks}
           subRouteView={subRouteView}
-          setSubRouteView={setSubRouteView}
+          menuDispatch={menuDispatch}
         />
 
         <HomeLinkContainer
@@ -48,7 +52,7 @@ export default function DesktopContainer() {
           }
           siteMapRoutes={secondaryLinks}
           subRouteView={subRouteView}
-          setSubRouteView={setSubRouteView}
+          menuDispatch={menuDispatch}
         />
       </nav>
     );
