@@ -9,47 +9,75 @@ import { webpageRoutes } from "../../routes/index";
 
 const { routes } = webpageRoutes;
 
-const Menu = () => {
-  const [navMenuState, menuDispatch] = useNavMenuController(initialMenuState);
-  const { isMobileMenuOpen, subRouteView } = navMenuState;
+const primaryLinks = routes.filter((route) => route.attribute === "primary");
+const secondaryLinks = routes.filter(
+  (route) => route.attribute === "secondary"
+);
 
+const MenuViewControl = ({ isMobileMenuOpen, menuDispatch }) => {
   if (!isMobileMenuOpen) {
     return (
       <button
         onClick={() => menuDispatch({ type: "openSubMenu" })}
-        className="p-2 bg_custom-dark text-white rounded-sm w-24 h-11"
+        className="absolute right-2.5 top-2.5 p-2 bg_custom-dark text-white rounded-sm w-24 h-11"
       >
         MENU
       </button>
     );
   } else {
     return (
-      <div className="bg-red-100 relative">
-        <button
-          onClick={() => menuDispatch({ type: "closeMenu" })}
-          className="p-2 border-2 rounded-sm w-24 h-11"
-        >
-          CLOSE
-        </button>
+      <button
+        onClick={() => menuDispatch({ type: "closeMenu" })}
+        className="absolute right-2.5 top-2.5 p-2 border-2 rounded-sm w-24 h-11"
+      >
+        CLOSE
+      </button>
+    );
+  }
+};
+
+const NavMenu = ({ isMobileMenuOpen, menuDispatch, subRouteView }) => {
+  if (isMobileMenuOpen) {
+    return (
+      <div className="flex relative w-screen">
         <LinkContainer
-          styleAttribute="flex-col absolute right-0 bg-white w-36 items-end "
+          styleAttribute="absolute right-0 bg-red-100  flex flex-col w-3/6"
           subRouteView={subRouteView}
           menuDispatch={menuDispatch}
-          siteMapRoutes={routes}
+          siteMapRoutes={primaryLinks}
+        />
+        <LinkContainer
+          styleAttribute="absolute bg-blue-100  flex flex-col w-3/6"
+          subRouteView={subRouteView}
+          menuDispatch={menuDispatch}
+          siteMapRoutes={secondaryLinks}
         />
       </div>
     );
+  } else {
+    return null;
   }
-  }
+};
 
 export default function MobileContainer() {
+    const [navMenuState, menuDispatch] = useNavMenuController(initialMenuState);
+    const { isMobileMenuOpen, subRouteView } = navMenuState;
+  
     return (
-      <div className="m-5 flex flex-row justify-between items-start">
+      <div className="m-5 flex flex-wrap flex-row justify-between items-start">
         <HomeLinkContainer>
           <SiteName styles="m-auto" />
           <PageSubtitle />
+          <NavMenu
+            isMobileMenuOpen={isMobileMenuOpen}
+            subRouteView={subRouteView}
+            menuDispatch={menuDispatch}
+          />
         </HomeLinkContainer>
-        <Menu />
+        <MenuViewControl
+          isMobileMenuOpen={isMobileMenuOpen}
+          menuDispatch={menuDispatch}
+        />
       </div>
     );
 }
