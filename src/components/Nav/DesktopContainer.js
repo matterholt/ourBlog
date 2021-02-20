@@ -6,12 +6,10 @@ import PageSubtitle from "../general/PageSubtitle"
 
 import { webpageRoutes } from "../../routes/index";
 
+const { routes } = webpageRoutes;
 
-
-const primaryLinks = webpageRoutes.filter(
-  (route) => route.attribute === "primary"
-);
-const secondaryLinks = webpageRoutes.filter(
+const primaryLinks = routes.filter((route) => route.attribute === "primary");
+const secondaryLinks = routes.filter(
   (route) => route.attribute === "secondary"
 );
 
@@ -30,7 +28,7 @@ export default function DesktopContainer() {
           styleAttribute={
             "md:row-start-2 md:col-span-1 lg:col-start-1 lg:row-start-1"
           }
-          webpageRoutes={primaryLinks}
+          siteMapRoutes={primaryLinks}
           subRouteView={subRouteView}
           setSubRouteView={setSubRouteView}
         />
@@ -48,7 +46,7 @@ export default function DesktopContainer() {
           styleAttribute={
             "md:row-start-2 md:col-span-2 lg:col-start-3 lg:row-start-1"
           }
-          webpageRoutes={secondaryLinks}
+          siteMapRoutes={secondaryLinks}
           subRouteView={subRouteView}
           setSubRouteView={setSubRouteView}
         />

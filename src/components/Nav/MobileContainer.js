@@ -5,46 +5,52 @@ import SiteName from "../svg/SiteName";
 import PageSubtitle from "../general/PageSubtitle";
 import { webpageRoutes } from "../../routes/index";
 
+const { routes, routeTitle } = webpageRoutes;
 
 const Menu = () => {
   const [isMenuOpen, setMenuIsOpen] = useState(false)
   const [subRouteView, setSubRouteView] = useState("close"); 
 
 
-  function handleMenuClose(action) {
+  function handleMenu(action, subMenuName=null) {
     // controls the closing menu on mobile screen display
-    // useReducer
-    
-    if (action === "closeAll") {
-      setSubRouteView("close");
-      setMenuIsOpen(false);
-    } else if(action === "closeSubRoute") {
-      setSubRouteView("close");
-    } else if (action === "closeMenu") {
-      setMenuIsOpen(false);
-    } else {
-      throw Error ("action undefined")
+    // useReducer, custom Hook, for desktop version as well ???????
+
+    switch (action) {
+      case "openSubMenu":
+        setMenuIsOpen(true)
+        setSubRouteView(subMenuName);
+        break;
+      case "closeAll":
+        setSubRouteView("close");
+        setMenuIsOpen(false);
+        break;
+      case "closeSubRoute":
+        setSubRouteView("close");
+        break;
+      case "closeMenu":
+        setMenuIsOpen(false);
+        break
+      default:
+        throw Error("action undefined");
     }
-    
   }
 
-
-
-
-
+  
   if (!isMenuOpen) {
-      
-            return(
-            <button onClick={() => setMenuIsOpen(true)} className="p-2 bg_custom-dark text-white rounded-sm ">
-              MENU
-              </button>)
+
+  return(
+      <button onClick={() => setMenuIsOpen(true)} className="p-2 bg_custom-dark text-white rounded-sm ">
+        MENU
+      </button>
+  )
     
     } else {
 
         return (
           <div className="bg-red-100 relative ">
             <button
-              onClick={() => handleClose("closeMenu")}
+              onClick={() => handleMenu("closeMenu")}
               className="p-2 border-2 rounded-sm "
             >
               CLOSE
@@ -52,13 +58,12 @@ const Menu = () => {
             <LinkContainer
               styleAttribute="flex-col absolute top-12 right-0 bg-red-200"
               subRouteView={subRouteView}
-              handleMenuClose={handleMenuClose}
-              webpageRoutes={webpageRoutes}
+              handleMenu={handleMenu}
+              siteMapRoutes={routes}
             />
           </div>
         );
     }
-  
   }
 
 export default function MobileContainer() {

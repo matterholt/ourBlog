@@ -2,7 +2,7 @@ import Link from 'next/link'
 import ArrowSVG from "../svg/ArrowDown";
  
 
-const LinkPath = ({ path, name, handleMenuClose }) => {
+const LinkPath = ({ path, name, handleMenu }) => {
   return (
     <Link
       href={{
@@ -10,7 +10,7 @@ const LinkPath = ({ path, name, handleMenuClose }) => {
       }}
     >
       <a
-        onClick={() => handleMenuClose("closeAll")}
+        onClick={() => handleMenu("closeAll")}
         className="hover:underline inline-block py-2 px-4 no-underline py-2 px-4"
       >
         {name}
@@ -19,7 +19,7 @@ const LinkPath = ({ path, name, handleMenuClose }) => {
   );
 };
 
-const LinkWithQuery = ({ link, handleMenuClose }) => {
+const LinkWithQuery = ({ link, handleMenu }) => {
   const { tag, path } = link;
   return (
     <Link
@@ -29,7 +29,7 @@ const LinkWithQuery = ({ link, handleMenuClose }) => {
       }}
     >
       <a
-        onClick={() => handleMenuClose("closeAll")}
+        onClick={() => handleMenu("closeAll")}
         className="hover:underline inline-block py-2 px-4 no-underline py-2 px-4"
       >
         {tag}
@@ -41,20 +41,24 @@ const LinkWithQuery = ({ link, handleMenuClose }) => {
 const SubMenuLinkView = ({
   subRoutes,
   subRouteView,
-  handleMenuClose,
+  handleMenu,
 }) => {
-  if (subRouteView === subRoutes) {
+  
+  const { routeTitle ,routes} = subRoutes;
+
+
+  if (subRouteView === routeTitle) {
     return (
       <div className="relative flex">
-        <button onClick={() => handleMenuClose("closeSubRoute")}>
+        <button onClick={() => handleMenu("closeSubRoute")}>
           <ArrowSVG transform="rotate(180)" />
         </button>
         <div className="absolute top-10 flex flex-col bg_custom-dark">
-          {subRoutes.map((subLink) => (
+          {routes.map((subLink) => (
             <LinkWithQuery
               key={subLink.id}
               link={subLink}
-              handleMenuClose={handleMenuClose}
+              handleMenu={handleMenu}
             />
           ))}
         </div>
@@ -62,7 +66,7 @@ const SubMenuLinkView = ({
     );
   } else {
     return (
-      <button onClick={() => setSubRouteView(subRoutes)}>
+      <button onClick={() => handleMenu("openSubMenu", routeTitle)}>
         <ArrowSVG />
       </button>
     );
@@ -71,32 +75,34 @@ const SubMenuLinkView = ({
 
 
 export default function LinkContainer({
-  webpageRoutes = [],
+  siteMapRoutes,
   styleAttribute,
   subRouteView,
-  handleMenuClose,
-}) {
+  handleMenu,
+})
+{
+
   return (
     <ul
       className={`list-reset flex items-center justify-evenly text-sm ${styleAttribute}`}
     >
-      {webpageRoutes.map((link) => (
-        <li className="mr-2 flex" key={link.id}>
-          {link.subRoutes ? (
-            <SubMenuLinkView
-              subRouteView={subRouteView}
-              subRoutes={link.subRoutes}
-              handleMenuClose={handleMenuClose}
-            />
-          ) : null}
+      {siteMapRoutes.map((link) => (
+          <li className="mr-2 flex" key={link.id}>
+            {link.subRoutes ? (
+              <SubMenuLinkView
+                subRouteView={subRouteView}
+                subRoutes={link.subRoutes}
+                handleMenu={handleMenu}
+              />
+            ) : null}
 
-          <LinkPath
-            handleMenuClose={handleMenuClose}
-            path={link.path}
-            name={link.name.toUpperCase()}
-          />
-        </li>
-      ))}
+            <LinkPath
+              handleMenu={handleMenu}
+              path={link.path}
+              name={link.name.toUpperCase()}
+            />
+          </li>
+        ))}
     </ul>
   );
 };

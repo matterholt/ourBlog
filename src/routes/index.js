@@ -2,7 +2,9 @@ const homeRoute = { id: 0, path: "/", name: "Home", attribute: "primary" };
 const future__TEM = [
   
 ];
-const blogRoutes = [
+const blogRoutes = {
+  routeTitle : "blogSubRoutes",
+  routes: [
   {
     id: 1,
     image: "/mainImg/applyMakeupOthers.jpg",
@@ -35,9 +37,11 @@ const blogRoutes = [
     title: "Safe Products",
     attribute: "blogFilter",
   },
-];
+  ]};
 
-const webpageRoutes = [
+const webpageRoutes ={
+  routeTitle : "mainSiteMap",
+  routes: [
   { id: 0, path: "/", name: "Home", attribute: "home" },
   {
     id: 1,
@@ -62,9 +66,7 @@ const webpageRoutes = [
     subRoutes: blogRoutes,
   },
   { id: 6, path: "/contact", name: "contact", attribute: "secondary" },
-];
-
-// subroutes for blog
+]};
 
 
 const socialRoutes = [

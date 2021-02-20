@@ -1,8 +1,10 @@
 import { webpageRoutes } from "../../routes/index";
 
+const { routes } = webpageRoutes;
+
 export default function PageTitle({ routerPathName }) {
 
-  const pageRouteData = webpageRoutes.find(
+  const pageRouteData = routes.find(
     (routeData) => routeData.path === routerPathName
   );
 
