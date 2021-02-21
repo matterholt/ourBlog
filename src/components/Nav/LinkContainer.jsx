@@ -1,23 +1,20 @@
-import Link from 'next/link'
+import Link from "next/link";
 import ArrowSVG from "../svg/ArrowDown";
- 
 
-const LinkPath = ({ path, name, menuDispatch }) => {
-  return (
-    <Link
-      href={{
-        pathname: path,
-      }}
+const LinkPath = ({ path, name, menuDispatch }) => (
+  <Link
+    href={{
+      pathname: path,
+    }}
+  >
+    <a
+      onClick={() => menuDispatch({ type: "closeAll" })}
+      className="hover:underline inline-block py-2 px-4 no-underline py-2 px-4"
     >
-      <a
-        onClick={() => menuDispatch({type:"closeAll"})}
-        className="hover:underline inline-block py-2 px-4 no-underline py-2 px-4"
-      >
-        {name}
-      </a>
-    </Link>
-  );
-};
+      {name}
+    </a>
+  </Link>
+);
 
 const LinkWithQuery = ({ link, menuDispatch }) => {
   const { tag, path } = link;
@@ -29,7 +26,7 @@ const LinkWithQuery = ({ link, menuDispatch }) => {
       }}
     >
       <a
-        onClick={() => menuDispatch({type:"closeAll"})}
+        onClick={() => menuDispatch({ type: "closeAll" })}
         className="hover:underline inline-block py-2 px-4 no-underline py-2 px-4"
       >
         {tag}
@@ -58,19 +55,17 @@ const SubMenuLinkView = ({ subRoutes, subRouteView, menuDispatch }) => {
         </div>
       </div>
     );
-  } else {
-    return (
-      <button
-        onClick={() =>
-          menuDispatch({ type: "openSubMenu", menuName:routeTitle })
-        }
-      >
-        <ArrowSVG />
-      </button>
-    );
   }
+  return (
+    <button
+      onClick={() =>
+        menuDispatch({ type: "openSubMenu", menuName: routeTitle })
+      }
+    >
+      <ArrowSVG />
+    </button>
+  );
 };
-
 
 export default function LinkContainer({
   siteMapRoutes,
@@ -79,9 +74,7 @@ export default function LinkContainer({
   menuDispatch,
 }) {
   return (
-    <ul
-      className={`list-reset flex justify-evenly text-sm ${styleAttribute}`}
-    >
+    <ul className={`list-reset flex justify-evenly text-sm ${styleAttribute}`}>
       {siteMapRoutes.map((link) => (
         <li className="py-4 flex h-14 " key={link.id}>
           {link.subRoutes ? (
@@ -101,4 +94,4 @@ export default function LinkContainer({
       ))}
     </ul>
   );
-};
+}

@@ -1,6 +1,5 @@
 import Link from "next/link";
 
-
 import Image from "next/image";
 
 import { blogRoutes } from "../../routes/index";
@@ -38,10 +37,11 @@ const ImageLink = ({ linkData }) => {
 };
 
 export default function QuickBogLink() {
-    return (
-      <div className="container my-20 flex flex-wrap lg:flex-nowrap justify-evenly">
-        {blogRoutes.map((linkData) => {
-          return <ImageLink key={linkData.id} linkData={linkData} />;
-        })}
-      </div>
-    );};
+  return (
+    <div className="container my-20 flex flex-wrap lg:flex-nowrap justify-evenly">
+      {blogRoutes.map((linkData) => (
+        <ImageLink key={linkData.id} linkData={linkData} />
+      ))}
+    </div>
+  );
+}

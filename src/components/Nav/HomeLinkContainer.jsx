@@ -1,11 +1,8 @@
-import Link from 'next/link'
+import Link from "next/link";
 
-import Title from "../svg/SiteName"
+import Title from "../svg/SiteName";
 
-import {
-  homeRoute,
-} from "../../routes/index";
-
+import { homeRoute } from "../../routes/index";
 
 export default function HomeLinkContainer({ children, styleAttribute }) {
   return (

@@ -3,5 +3,4 @@ const initialMenuState = {
   subRouteView: "close",
 };
 
-
 export { initialMenuState };

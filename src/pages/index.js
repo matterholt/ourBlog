@@ -1,11 +1,9 @@
-import MainLanding from "../components/landing/MainLanding"
+import MainLanding from "../components/landing/MainLanding";
 import { getLatestPostForHome } from "../lib/api";
 
 function Home(props) {
- 
   return (
     <div>
-      
       <MainLanding post={props.latestPost} />
     </div>
   );
@@ -19,4 +17,4 @@ export async function getStaticProps({ preview = false }) {
   };
 }
 
-export default Home
+export default Home;

@@ -1,4 +1,4 @@
-import {useReducer} from 'react'
+import { useReducer } from "react";
 
 function menuReducer(state, action) {
   switch (action.type) {
@@ -15,14 +15,12 @@ function menuReducer(state, action) {
   }
 }
 
-
-
 function useNavMenuController(initialState) {
   // hook to control the top navigation menus for mobile and desktop
 
-  const [state, dispatch] = useReducer( menuReducer,initialState);
+  const [state, dispatch] = useReducer(menuReducer, initialState);
 
-  return  [state, dispatch] ;
+  return [state, dispatch];
 }
 
-export {useNavMenuController}
+export { useNavMenuController };

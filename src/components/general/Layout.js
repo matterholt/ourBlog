@@ -1,14 +1,11 @@
-import Header from "../general/Header";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import Header from "./Header";
 import Nav from "../Nav/index";
 
-import Footer from "../general/Footer";
-import Head from "next/head";
+import Footer from "./Footer";
 
-import { useRouter } from "next/router";
-
-import PageTitle from "../general/PageTitle";
-
-
+import PageTitle from "./PageTitle";
 
 const Main = ({ children }) => (
   <div className="container md:px-4  max-w-7xl mx-auto min-h-screen">

@@ -1,9 +1,7 @@
-
 // import Content from "./Content"
-import Image from "./Image"
-import ReadTime from "./ReadTime"
 import BlockContent from "@sanity/block-content-to-react";
-
+import Image from "./Image";
+import ReadTime from "./ReadTime";
 
 /*
 const Post = (post) => (
@@ -24,7 +22,7 @@ function Article({ children }) {
       {children}
     </div>
   );
-};
+}
 const Title = ({ title }) => (
   <h2 className="w-full font-bold text-xl text-gray-900 px-6">{title}</h2>
 );
@@ -33,13 +31,11 @@ const Content = ({ body }) => (
     <BlockContent blocks={body} />
   </div>
 );
-const RelatedTag = ({slug }) => (
-        <p className="w-full text-gray-600 text-xs md:text-sm pt-6 px-6">
-    {slug}
-      </p>
-)
+const RelatedTag = ({ slug }) => (
+  <p className="w-full text-gray-600 text-xs md:text-sm pt-6 px-6">{slug}</p>
+);
 
-export default function HeroArticle({post}) {
+export default function HeroArticle({ post }) {
   return (
     <div className="container my-10 w-auto justify-center flex flex-col h-full bg-white overflow-hidden">
       <h2 className="text-center h-16 font-bold text-3xl">Latest Post</h2>
@@ -57,4 +53,4 @@ export default function HeroArticle({post}) {
       </a>
     </div>
   );
-};
+}

@@ -4,4 +4,4 @@ const PageSubtitle = () => (
   </p>
 );
 
-export default  PageSubtitle
+export default PageSubtitle;

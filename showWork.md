@@ -8,7 +8,8 @@ Making a record of th items and issues that I had to learn when building this pr
 
 3. Sanity has blockContent for data entries this allow the user to have bold, italic and other attributes inside the text. Parsing them out to the screen is a bit much it and object with arrays and types and more arrays. Sanity has a hook that can be npm installed called "block-content-to-react ". There is also some for other framework and good ole HTML. These is easy take the block content and get it to a readable format the fornt end UI.
 
-
+-> REferanc
+https://www.inkoop.io/blog/setup-eslint-for-react-with-prettier-pre-commit-and-vscode/
 
 ## References
 
