@@ -20,3 +20,6 @@ Write up about the creation of commenting engine with next and Sanity. by Bryan 
 Vercel code example for setting up [cms-sanity](https://github.com/vercel/next.js/tree/canary/examples/cms-sanity)
 
 A 2019 Sanity blog post using Next.js and Sanity. Built using old NEXT.JS 9.0.3, S[Tutorial: Make a blog with Next.js, React and Sanity](https://www.sanity.io/blog/build-your-own-blog-with-sanity-and-next-js#3-make-a-dynamic-page-template-9e1fb1526b04)
+
+A reference for the proptypes
+[referance proptype](https://blog.logrocket.com/validating-react-component-props-with-prop-types-ef14b29963fc/)
