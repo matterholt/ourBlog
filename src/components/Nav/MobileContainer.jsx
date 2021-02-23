@@ -5,23 +5,23 @@ import LinkContainer from "./LinkContainer";
 import SiteName from "../svg/SiteName";
 import PageSubtitle from "../general/PageSubtitle";
 
-import { useNavMenuController } from "../../hooks/useNavMenuController";
-import { initialMenuState } from "../../lib/initialState";
-import { webpageRoutes } from "../../routes/index";
+import {useNavMenuController} from "../../hooks/useNavMenuController";
+import {initialMenuState} from "../../lib/initialState";
+import {webpageRoutes} from "../../routes/index";
 
-const { routes } = webpageRoutes;
+const {routes} = webpageRoutes;
 
 const primaryLinks = routes.filter((route) => route.attribute === "primary");
 const secondaryLinks = routes.filter(
   (route) => route.attribute === "secondary",
 );
 
-const MenuViewControl = ({ isMobileMenuOpen, menuDispatch }) => {
+const MenuViewControl = ({isMobileMenuOpen, menuDispatch}) => {
   if (!isMobileMenuOpen) {
     return (
       <button
         type="button"
-        onClick={() => menuDispatch({ type: "openSubMenu" })}
+        onClick={() => menuDispatch({type: "openSubMenu"})}
         className="absolute right-2.5 top-2.5 p-2 bg_custom-dark text-white rounded-sm w-24 h-11"
       >
         MENU
@@ -31,7 +31,7 @@ const MenuViewControl = ({ isMobileMenuOpen, menuDispatch }) => {
   return (
     <button
       type="button"
-      onClick={() => menuDispatch({ type: "closeMenu" })}
+      onClick={() => menuDispatch({type: "closeMenu"})}
       className="absolute right-2.5 top-2.5 p-2 border-2 rounded-sm w-24 h-11"
     >
       CLOSE
@@ -43,7 +43,7 @@ MenuViewControl.propTypes = {
   menuDispatch: PropTypes.func.isRequired,
 };
 
-const NavMenu = ({ isMobileMenuOpen, menuDispatch, subRouteView = null }) => {
+const NavMenu = ({isMobileMenuOpen, menuDispatch, subRouteView = null}) => {
   if (isMobileMenuOpen) {
     return (
       <div className="flex relative w-screen">
@@ -76,14 +76,14 @@ NavMenu.defaultProps = {
 
 export default function MobileContainer() {
   const [navMenuState, menuDispatch] = useNavMenuController(initialMenuState);
-  const { isMobileMenuOpen, subRouteView } = navMenuState;
+  const {isMobileMenuOpen, subRouteView} = navMenuState;
 
   return (
     <div className="m-5 flex flex-wrap flex-row justify-between items-start">
       <HomeLinkContainer>
         <SiteName styles="m-auto" />
-        <PageSubtitle />
       </HomeLinkContainer>
+      <PageSubtitle />
       <NavMenu
         isMobileMenuOpen={isMobileMenuOpen}
         subRouteView={subRouteView}

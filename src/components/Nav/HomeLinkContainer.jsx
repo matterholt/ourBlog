@@ -1,10 +1,12 @@
 // disable conflict with NEXT.js
 /* eslint-disable jsx-a11y/anchor-is-valid */
+import PropTypes from "prop-types";
+
 import Link from "next/link";
 
-import { homeRoute } from "../../routes/index";
+import {homeRoute} from "../../routes/index";
 
-export default function HomeLinkContainer({ children, styleAttribute }) {
+export default function HomeLinkContainer({children, styleAttribute}) {
   return (
     <Link href={homeRoute.path}>
       <a className={`${styleAttribute}`}>
@@ -13,3 +15,10 @@ export default function HomeLinkContainer({ children, styleAttribute }) {
     </Link>
   );
 }
+HomeLinkContainer.propTypes = {
+  styleAttribute: PropTypes.string,
+  children: PropTypes.element.isRequired,
+};
+HomeLinkContainer.defaultProps = {
+  styleAttribute: "",
+};

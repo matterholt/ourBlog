@@ -3,21 +3,21 @@
 import PropTypes from "prop-types";
 import Link from "next/link";
 
-export default function QuarryLinkPath({ link, menuDispatch }) {
-  const { tag, path } = link;
+export default function QuarryLinkPath({link, menuDispatch}) {
+  const {tag, path} = link;
 
   return (
     <li>
       <Link
         href={{
           pathname: path,
-          query: { tag },
+          query: {tag},
         }}
       >
         <a className="hover:underline inline-block py-2 px-4 no-underline py-2 px-4">
           <button
             type="button"
-            onClick={() => menuDispatch({ type: "closeAll" })}
+            onClick={() => menuDispatch({type: "closeAll"})}
           >
             {tag}
           </button>

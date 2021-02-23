@@ -1,4 +1,3 @@
-/* eslint-disable object-curly-spacing */
 import PropTypes from "prop-types";
 import ArrowSVG from "../svg/ArrowDown";
 
@@ -60,7 +59,7 @@ SubMenuLinkView.defaultProps = {
 };
 
 export default function LinkContainer({
-  siteMapRoutes = [],
+  siteMapRoutes,
   styleAttribute = "",
   subRouteView,
   menuDispatch,
@@ -87,19 +86,16 @@ export default function LinkContainer({
   );
 }
 LinkContainer.propTypes = {
-  siteMapRoutes: PropTypes.shape({
-    routeTitle: PropTypes.string.isRequired,
-    routes: PropTypes.arrayOf(
-      PropTypes.shape({
-        attribute: PropTypes.string,
-        id: PropTypes.number,
-        image: PropTypes.string,
-        path: PropTypes.string,
-        tag: PropTypes.string,
-        title: PropTypes.string,
-      }),
-    ),
-  }).isRequired,
+  siteMapRoutes: PropTypes.arrayOf(
+    PropTypes.shape({
+      attribute: PropTypes.string,
+      id: PropTypes.number,
+      image: PropTypes.string,
+      path: PropTypes.string,
+      tag: PropTypes.string,
+      title: PropTypes.string,
+    }),
+  ).isRequired,
   styleAttribute: PropTypes.string,
   subRouteView: PropTypes.string,
   menuDispatch: PropTypes.func.isRequired,

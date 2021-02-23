@@ -3,17 +3,15 @@
 import PropTypes from "prop-types";
 import Link from "next/link";
 
-export default function LinkRoutePath({ path, name, menuDispatch }) {
+export default function LinkRoutePath({path, name, menuDispatch}) {
   return (
-    <Link href={path}>
-      <a
-        type="button"
-        onClick={() => menuDispatch({ type: "closeAll" })}
-        className="hover:underline inline-block py-2 px-4 no-underline py-2 px-4"
-      >
-        {name}
-      </a>
-    </Link>
+    <button type="button" onClick={() => menuDispatch({type: "closeAll"})}>
+      <Link href={path}>
+        <a className="hover:underline inline-block py-2 px-4 no-underline py-2 px-4">
+          {name}
+        </a>
+      </Link>
+    </button>
   );
 }
 
