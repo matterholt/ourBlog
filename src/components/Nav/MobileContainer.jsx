@@ -13,7 +13,7 @@ const { routes } = webpageRoutes;
 
 const primaryLinks = routes.filter((route) => route.attribute === "primary");
 const secondaryLinks = routes.filter(
-  (route) => route.attribute === "secondary"
+  (route) => route.attribute === "secondary",
 );
 
 const MenuViewControl = ({ isMobileMenuOpen, menuDispatch }) => {
@@ -38,8 +38,12 @@ const MenuViewControl = ({ isMobileMenuOpen, menuDispatch }) => {
     </button>
   );
 };
+MenuViewControl.propTypes = {
+  isMobileMenuOpen: PropTypes.bool.isRequired,
+  menuDispatch: PropTypes.func.isRequired,
+};
 
-const NavMenu = ({ isMobileMenuOpen, menuDispatch, subRouteView }) => {
+const NavMenu = ({ isMobileMenuOpen, menuDispatch, subRouteView = null }) => {
   if (isMobileMenuOpen) {
     return (
       <div className="flex relative w-screen">
@@ -60,10 +64,14 @@ const NavMenu = ({ isMobileMenuOpen, menuDispatch, subRouteView }) => {
   }
   return null;
 };
+
 NavMenu.propTypes = {
   isMobileMenuOpen: PropTypes.bool.isRequired,
   menuDispatch: PropTypes.func.isRequired,
-  subRouteView: PropTypes.string.isRequired,
+  subRouteView: PropTypes.string,
+};
+NavMenu.defaultProps = {
+  subRouteView: null,
 };
 
 export default function MobileContainer() {
@@ -75,12 +83,12 @@ export default function MobileContainer() {
       <HomeLinkContainer>
         <SiteName styles="m-auto" />
         <PageSubtitle />
-        <NavMenu
-          isMobileMenuOpen={isMobileMenuOpen}
-          subRouteView={subRouteView}
-          menuDispatch={menuDispatch}
-        />
       </HomeLinkContainer>
+      <NavMenu
+        isMobileMenuOpen={isMobileMenuOpen}
+        subRouteView={subRouteView}
+        menuDispatch={menuDispatch}
+      />
       <MenuViewControl
         isMobileMenuOpen={isMobileMenuOpen}
         menuDispatch={menuDispatch}

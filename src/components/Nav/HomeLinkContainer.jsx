@@ -1,6 +1,6 @@
+// disable conflict with NEXT.js
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import Link from "next/link";
-
-import Title from "../svg/SiteName";
 
 import { homeRoute } from "../../routes/index";
 

@@ -42,5 +42,16 @@
     "lint-staged": "^10.5.4",
     "prettier": "^2.2.1",
     "prettier-eslint-cli": "^5.0.0"
+  },
+  "prettier": {
+    "trailingComma": "all",
+    "tabWidth": 2,
+    "semi": true,
+    "doubleQuote": true,
+    "endOfLine": "lf",
+    "htmlWhitespaceSensitivity": "css",
+    "insertPragma": false,
+    "jsxSingleQuote": false,
+    "printWidth": 80
   }
 }
