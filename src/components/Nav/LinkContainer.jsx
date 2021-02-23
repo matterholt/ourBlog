@@ -1,18 +1,19 @@
+/* eslint-disable object-curly-spacing */
 import PropTypes from "prop-types";
 import ArrowSVG from "../svg/ArrowDown";
 
 import LinkRoutePath from "./LinkRoutePath";
 import QuarryLinkPath from "./QuarryLinkPath";
 
-const SubMenuLinkView = ({ subRoutes, subRouteView, menuDispatch }) => {
-  const { routeTitle, routes } = subRoutes;
+const SubMenuLinkView = ({subRoutes, subRouteView, menuDispatch}) => {
+  const {routeTitle, routes} = subRoutes;
 
   if (subRouteView === routeTitle) {
     return (
       <div className="relative flex">
         <button
           type="button"
-          onClick={() => menuDispatch({ type: "closeSubRoute" })}
+          onClick={() => menuDispatch({type: "closeSubRoute"})}
         >
           <ArrowSVG transform="rotate(180)" />
         </button>
@@ -31,15 +32,12 @@ const SubMenuLinkView = ({ subRoutes, subRouteView, menuDispatch }) => {
   return (
     <button
       type="button"
-      onClick={() =>
-        menuDispatch({ type: "openSubMenu", menuName: routeTitle })
-      }
+      onClick={() => menuDispatch({type: "openSubMenu", menuName: routeTitle})}
     >
       <ArrowSVG />
     </button>
   );
 };
-
 SubMenuLinkView.propTypes = {
   subRoutes: PropTypes.shape({
     routeTitle: PropTypes.string.isRequired,
@@ -62,8 +60,8 @@ SubMenuLinkView.defaultProps = {
 };
 
 export default function LinkContainer({
-  siteMapRoutes,
-  styleAttribute,
+  siteMapRoutes = [],
+  styleAttribute = "",
   subRouteView,
   menuDispatch,
 }) {
@@ -88,3 +86,25 @@ export default function LinkContainer({
     </ul>
   );
 }
+LinkContainer.propTypes = {
+  siteMapRoutes: PropTypes.shape({
+    routeTitle: PropTypes.string.isRequired,
+    routes: PropTypes.arrayOf(
+      PropTypes.shape({
+        attribute: PropTypes.string,
+        id: PropTypes.number,
+        image: PropTypes.string,
+        path: PropTypes.string,
+        tag: PropTypes.string,
+        title: PropTypes.string,
+      }),
+    ),
+  }).isRequired,
+  styleAttribute: PropTypes.string,
+  subRouteView: PropTypes.string,
+  menuDispatch: PropTypes.func.isRequired,
+};
+LinkContainer.defaultProps = {
+  styleAttribute: "",
+  subRouteView: null,
+};

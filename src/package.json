@@ -44,14 +44,20 @@
     "prettier-eslint-cli": "^5.0.0"
   },
   "prettier": {
-    "trailingComma": "all",
-    "tabWidth": 2,
-    "semi": true,
-    "doubleQuote": true,
+    "bracketSpacing": false,
+    "embeddedLanguageFormatting": "auto",
     "endOfLine": "lf",
     "htmlWhitespaceSensitivity": "css",
     "insertPragma": false,
+    "jsxBracketSameLine": false,
     "jsxSingleQuote": false,
-    "printWidth": 80
+    "printWidth": 80,
+    "proseWrap": "always",
+    "quoteProps": "as-needed",
+    "requirePragma": false,
+    "doubleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "all",
+    "useTabs": false
   }
 }
