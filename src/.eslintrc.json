@@ -18,7 +18,7 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react"],
+  "plugins": ["react", "testing-library", "jest-dom"],
   "rules": {
     "react/react-in-jsx-scope": 0,
     "quotes": ["error", "double"],
