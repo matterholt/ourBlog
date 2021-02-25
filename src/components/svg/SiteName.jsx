@@ -9,6 +9,7 @@ function TitleSvg(props) {
       viewBox="0 0 241 58"
       {...props}
     >
+      <title>Root + Blush</title>
       <image
         data-name="root + blush"
         width={241}
