@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from "react";
-import {render, fireEvent} from "@testing-library/react";
+import {render} from "@testing-library/react";
 import DesktopContainer from "../DesktopContainer";
 
 describe("Test for desktop Navigation Component", () => {
@@ -13,10 +13,5 @@ describe("Test for desktop Navigation Component", () => {
     getByText(/shop/i);
     getByText(/opportunity/i);
     getByText(/contact/i);
-  });
-  test("about Navigation", () => {
-    const {getByText} = render(<DesktopContainer />);
-    const link = getByText((/about/i));
-    fireEvent.click(link);
   });
 });

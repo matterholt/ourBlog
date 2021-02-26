@@ -22,7 +22,7 @@ const MenuViewControl = ({isMobileMenuOpen, menuDispatch}) => {
       <button
         type="button"
         onClick={() => menuDispatch({type: "openSubMenu"})}
-        className="absolute right-2.5 top-2.5 p-2 bg_custom-dark text-white rounded-sm w-24 h-11"
+        className="absolute text-sm right-5 top-10 p-2 bg_custom-dark text-white rounded-sm w-20 h-11"
       >
         MENU
       </button>
@@ -32,7 +32,7 @@ const MenuViewControl = ({isMobileMenuOpen, menuDispatch}) => {
     <button
       type="button"
       onClick={() => menuDispatch({type: "closeMenu"})}
-      className="absolute right-2.5 top-2.5 p-2 border-2 rounded-sm w-24 h-11"
+      className="absolute text-sm right-3 top-10 p-2 border-2 rounded-sm w-24 h-11"
     >
       CLOSE
     </button>
@@ -46,15 +46,15 @@ MenuViewControl.propTypes = {
 const NavMenu = ({isMobileMenuOpen, menuDispatch, subRouteView = null}) => {
   if (isMobileMenuOpen) {
     return (
-      <div className="flex relative w-screen">
+      <div className="flex relative w-screen bg_custom-dark">
         <LinkContainer
-          styleAttribute="absolute right-0 bg-red-100  flex flex-col w-3/6"
+          styleattribute="absolute right-0 flex flex-col w-3/6"
           subRouteView={subRouteView}
           menuDispatch={menuDispatch}
           siteMapRoutes={primaryLinks}
         />
         <LinkContainer
-          styleAttribute="absolute bg-blue-100  flex flex-col w-3/6"
+          styleattribute="absolute  flex flex-col w-3/6"
           subRouteView={subRouteView}
           menuDispatch={menuDispatch}
           siteMapRoutes={secondaryLinks}
@@ -80,10 +80,12 @@ export default function MobileContainer() {
 
   return (
     <div className="m-5 flex flex-wrap flex-row justify-between items-start">
-      <HomeLinkContainer>
-        <SiteName styles="m-auto" />
-      </HomeLinkContainer>
-      <PageSubtitle />
+      <div className="w-52">
+        <HomeLinkContainer>
+          <SiteName styles="m-auto w-52" />
+        </HomeLinkContainer>
+        <PageSubtitle />
+      </div>
       <NavMenu
         isMobileMenuOpen={isMobileMenuOpen}
         subRouteView={subRouteView}

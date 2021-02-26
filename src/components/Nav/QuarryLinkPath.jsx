@@ -14,7 +14,7 @@ export default function QuarryLinkPath({link, menuDispatch}) {
           query: {tag},
         }}
       >
-        <a className="hover:underline inline-block py-2 px-4 no-underline py-2 px-4">
+        <a className="hover:underline inline-block py-4 px-4 no-underline py-2 px-4">
           <button
             type="button"
             onClick={() => menuDispatch({type: "closeAll"})}

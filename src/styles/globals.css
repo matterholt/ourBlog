@@ -19,4 +19,7 @@
   .bg_custom-dark {
     background-color: #e3b8a7;
   }
+  .bg_custom-light{
+    background-color: rgb(252, 246, 244);
+  }
 }

@@ -6,11 +6,11 @@ import Link from "next/link";
 
 import {homeRoute} from "../../routes/index";
 
-export default function HomeLinkContainer({children, styleAttribute}) {
+export default function HomeLinkContainer({children, styleattribute}) {
   return (
     <h1>
       <Link href={homeRoute.path}>
-        <a className={`${styleAttribute}`}>
+        <a className={`${styleattribute}`}>
           {children || homeRoute.name.toUpperCase()}
         </a>
       </Link>
@@ -18,9 +18,9 @@ export default function HomeLinkContainer({children, styleAttribute}) {
   );
 }
 HomeLinkContainer.propTypes = {
-  styleAttribute: PropTypes.string,
+  styleattribute: PropTypes.string,
   children: PropTypes.element.isRequired,
 };
 HomeLinkContainer.defaultProps = {
-  styleAttribute: "",
+  styleattribute: "",
 };

@@ -1,4 +1,4 @@
-import {useState} from "react";
+
 import LinkContainer from "./LinkContainer";
 import HomeLinkContainer from "./HomeLinkContainer";
 import SiteName from "../svg/SiteName";
@@ -27,19 +27,21 @@ export default function DesktopContainer() {
   return (
     <nav className={`pt-4 items-center grid ${medScreen} ${largeScreen}`}>
       <LinkContainer
-        styleAttribute="md:row-start-2 md:col-span-1 lg:col-start-1 lg:row-start-1 items-center"
+        styleattribute="md:row-start-2 md:col-span-1 lg:col-start-1 lg:row-start-1 items-center"
         siteMapRoutes={primaryLinks}
         subRouteView={subRouteView}
         menuDispatch={menuDispatch}
       />
 
-      <HomeLinkContainer styleAttribute="md:row-start-1 md:col-span-full lg:col-span-1 justify-self-center text-center m-auto bg-white">
-        <SiteName styles="m-auto" />
-      </HomeLinkContainer>
-      <PageSubtitle />
+      <div styleattribute="md:row-start-1 md:col-span-full lg:col-span-1 justify-self-center text-center m-auto bg-white">
+        <HomeLinkContainer>
+          <SiteName styles="m-auto" />
+        </HomeLinkContainer>
+        <PageSubtitle />
+      </div>
 
       <LinkContainer
-        styleAttribute="md:row-start-2 md:col-span-2 lg:col-start-3 lg:row-start-1 items-center"
+        styleattribute="md:row-start-2 md:col-span-2 lg:col-start-3 lg:row-start-1 items-center"
         siteMapRoutes={secondaryLinks}
         subRouteView={subRouteView}
         menuDispatch={menuDispatch}

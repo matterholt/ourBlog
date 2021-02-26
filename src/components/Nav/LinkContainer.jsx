@@ -4,19 +4,23 @@ import ArrowSVG from "../svg/ArrowDown";
 import LinkRoutePath from "./LinkRoutePath";
 import QuarryLinkPath from "./QuarryLinkPath";
 
+
 const SubMenuLinkView = ({subRoutes, subRouteView, menuDispatch}) => {
   const {routeTitle, routes} = subRoutes;
 
   if (subRouteView === routeTitle) {
     return (
-      <div className="relative flex">
+      <div className="relative ">
         <button
+          className="relative grid items-center rounded-sm p-2 border"
           type="button"
           onClick={() => menuDispatch({type: "closeSubRoute"})}
         >
           <ArrowSVG transform="rotate(180)" />
         </button>
-        <ul className="list-reset absolute top-10 flex flex-col bg_custom-dark">
+        <ul
+          className="list-reset absolute top-10 flex flex-col -left-2 bg_custom-light"
+        >
           {routes.map((subLink) => (
             <QuarryLinkPath
               key={subLink.id}
@@ -29,12 +33,17 @@ const SubMenuLinkView = ({subRoutes, subRouteView, menuDispatch}) => {
     );
   }
   return (
-    <button
-      type="button"
-      onClick={() => menuDispatch({type: "openSubMenu", menuName: routeTitle})}
-    >
-      <ArrowSVG />
-    </button>
+    <div>
+      <button
+        className="grid items-center rounded-sm p-2 border"
+        type="button"
+        onClick={() =>
+          menuDispatch({type: "openSubMenu", menuName: routeTitle})
+        }
+      >
+        <ArrowSVG />
+      </button>
+    </div>
   );
 };
 SubMenuLinkView.propTypes = {
@@ -60,19 +69,14 @@ SubMenuLinkView.defaultProps = {
 
 export default function LinkContainer({
   siteMapRoutes,
-  styleAttribute = "",
+  styleattribute = "",
   subRouteView,
   menuDispatch,
 }) {
   return (
-    <ul className={`list-reset flex justify-evenly text-sm ${styleAttribute}`}>
+    <ul className={`list-reset flex justify-evenly text-sm ${styleattribute}`}>
       {siteMapRoutes.map((link) => (
         <li className="py-4 flex h-14 " key={link.id}>
-          <LinkRoutePath
-            menuDispatch={menuDispatch}
-            path={link.path}
-            name={link.name.toUpperCase()}
-          />
           {link.subRoutes ? (
             <SubMenuLinkView
               subRouteView={subRouteView}
@@ -80,6 +84,12 @@ export default function LinkContainer({
               menuDispatch={menuDispatch}
             />
           ) : null}
+
+          <LinkRoutePath
+            menuDispatch={menuDispatch}
+            path={link.path}
+            name={link.name.toUpperCase()}
+          />
         </li>
       ))}
     </ul>
@@ -96,11 +106,11 @@ LinkContainer.propTypes = {
       title: PropTypes.string,
     }),
   ).isRequired,
-  styleAttribute: PropTypes.string,
+  styleattribute: PropTypes.string,
   subRouteView: PropTypes.string,
   menuDispatch: PropTypes.func.isRequired,
 };
 LinkContainer.defaultProps = {
-  styleAttribute: "",
+  styleattribute: "",
   subRouteView: null,
 };
