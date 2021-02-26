@@ -4,13 +4,24 @@ import ArrowSVG from "../svg/ArrowDown";
 import LinkRoutePath from "./LinkRoutePath";
 import QuarryLinkPath from "./QuarryLinkPath";
 
+const OpenSubLinkView = ({routes = [], menuDispatch}) => (
+  <ul className=" list-reset absolute top-10 right-0  flex flex-col  bg_custom-light ">
+    {routes.map((subLink) => (
+      <QuarryLinkPath
+        key={subLink.id}
+        link={subLink}
+        menuDispatch={menuDispatch}
+      />
+    ))}
+  </ul>
+);
 
 const SubMenuLinkView = ({subRoutes, subRouteView, menuDispatch}) => {
   const {routeTitle, routes} = subRoutes;
 
   if (subRouteView === routeTitle) {
     return (
-      <div className="relative ">
+      <div className="relative mr-5">
         <button
           className="relative grid items-center rounded-sm p-2 border"
           type="button"
@@ -18,28 +29,16 @@ const SubMenuLinkView = ({subRoutes, subRouteView, menuDispatch}) => {
         >
           <ArrowSVG transform="rotate(180)" />
         </button>
-        <ul
-          className="list-reset absolute top-10 flex flex-col -left-2 bg_custom-light"
-        >
-          {routes.map((subLink) => (
-            <QuarryLinkPath
-              key={subLink.id}
-              link={subLink}
-              menuDispatch={menuDispatch}
-            />
-          ))}
-        </ul>
+        <OpenSubLinkView routes={routes} menuDispatch={menuDispatch} />
       </div>
     );
   }
   return (
-    <div>
+    <div className="mr-5">
       <button
         className="grid items-center rounded-sm p-2 border"
         type="button"
-        onClick={() =>
-          menuDispatch({type: "openSubMenu", menuName: routeTitle})
-        }
+        onClick={() => menuDispatch({type: "openSubMenu", menuName: routeTitle})}
       >
         <ArrowSVG />
       </button>
@@ -74,9 +73,16 @@ export default function LinkContainer({
   menuDispatch,
 }) {
   return (
-    <ul className={`list-reset flex justify-evenly text-sm ${styleattribute}`}>
+    <ul
+      className={`list-reset flex justify-evenly text-sm   ${styleattribute}`}
+    >
       {siteMapRoutes.map((link) => (
-        <li className="py-4 flex h-14 " key={link.id}>
+        <li className="py-4 flex justify-between h-14 w-40" key={link.id}>
+          <LinkRoutePath
+            menuDispatch={menuDispatch}
+            path={link.path}
+            name={link.name.toUpperCase()}
+          />
           {link.subRoutes ? (
             <SubMenuLinkView
               subRouteView={subRouteView}
@@ -84,12 +90,6 @@ export default function LinkContainer({
               menuDispatch={menuDispatch}
             />
           ) : null}
-
-          <LinkRoutePath
-            menuDispatch={menuDispatch}
-            path={link.path}
-            name={link.name.toUpperCase()}
-          />
         </li>
       ))}
     </ul>

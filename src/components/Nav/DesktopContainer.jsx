@@ -33,7 +33,7 @@ export default function DesktopContainer() {
         menuDispatch={menuDispatch}
       />
 
-      <div styleattribute="md:row-start-1 md:col-span-full lg:col-span-1 justify-self-center text-center m-auto bg-white">
+      <div className="md:row-start-1 md:col-span-full lg:col-span-1 justify-self-center text-center m-auto bg-white">
         <HomeLinkContainer>
           <SiteName styles="m-auto" />
         </HomeLinkContainer>
