@@ -7,7 +7,7 @@ const SubLink = ({sublink, menuDispatch}) => (
     path={sublink.path}
     query={sublink.tag}
     menuDispatch={menuDispatch}
-    styleAttribute="bg-red-100 absolute "
+    styleAttribute="bg-red-100 absolute"
   />
 );
 
@@ -20,7 +20,7 @@ export default function SubMenu({menuDispatch, subroutes, subRouteView}) {
       routeTitle={routeTitle}
       subRouteView={subRouteView}
     >
-      <div>
+      <div className="flex flex-col">
         {routes.map((sublink) => (
           <SubLink
             key={sublink.id}
