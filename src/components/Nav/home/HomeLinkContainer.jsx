@@ -4,13 +4,13 @@ import PropTypes from "prop-types";
 
 import Link from "next/link";
 
-import {homeRoute} from "../../routes/index";
+import {homeRoute} from "../../../routes/index";
 
-export default function HomeLinkContainer({children, styleattribute}) {
+export default function HomeLinkContainer({children, styleAttribute}) {
   return (
     <h1>
       <Link href={homeRoute.path}>
-        <a className={`${styleattribute}`}>
+        <a className={`${styleAttribute}`}>
           {children || homeRoute.name.toUpperCase()}
         </a>
       </Link>
@@ -18,9 +18,9 @@ export default function HomeLinkContainer({children, styleattribute}) {
   );
 }
 HomeLinkContainer.propTypes = {
-  styleattribute: PropTypes.string,
+  styleAttribute: PropTypes.string,
   children: PropTypes.element.isRequired,
 };
 HomeLinkContainer.defaultProps = {
-  styleattribute: "",
+  styleAttribute: "",
 };

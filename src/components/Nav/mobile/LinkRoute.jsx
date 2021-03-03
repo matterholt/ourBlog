@@ -1,22 +1,27 @@
-// able to use the link componet for the main routes and the subroutes
+// disable conflict with NEXT.js
+/* eslint-disable jsx-a11y/anchor-is-valid */
 
-const LinkRoute = ({menuDispatch, name, path, styleAttrubute = null}) => {
-  const styleType = typeof styleAttrubute === Object;
-  const objectClass = styleType ? styleAttrubute : null;
-  const classStyle = typeof styleAttrubute === "string";
-  const childClass = classStyle ? styleAttrubute : "";
+// able to use the link component for the main routes and the sub-routes
+import Link from "next/link";
+
+const LinkRoute = ({
+  menuDispatch, name, path, query = null, styleAttribute = null,
+}) => {
+  const classStyle = typeof styleAttribute === "string";
+  const childClass = classStyle ? styleAttribute : "";
 
   return (
-    <a href={path} className="link_href">
-      <button
-        style={objectClass}
-        className={`link_button ${childClass}`}
-        type="button"
-        onClick={() => menuDispatch({type: "closeMenus"})}
-      >
-        {name}
-      </button>
-    </a>
+    <Link href={{pathname: path, query}}>
+      <a className="hover:underline inline-block py-2 px-4 no-underline py-2 px-4">
+        <button
+          className={childClass}
+          type="button"
+          onClick={() => menuDispatch({type: "closeMenus"})}
+        >
+          {name}
+        </button>
+      </a>
+    </Link>
   );
 };
 

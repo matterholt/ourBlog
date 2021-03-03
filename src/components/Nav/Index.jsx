@@ -1,6 +1,9 @@
-import { useState, useEffect } from "react";
-import DesktopContainer from "./DesktopContainer";
-import MobileContainer from "./MobileContainer";
+import {useState, useEffect} from "react";
+// import DesktopContainer from "./DesktopContainer";
+import {webpageRoutes} from "../../routes/index";
+
+import SiteTitle from "./home/SiteTitle";
+import MobileMenu from "./MobileMenu";
 
 export default function Nav() {
   const [screenWidth, setScreenWidth] = useState(undefined);
@@ -22,8 +25,12 @@ export default function Nav() {
   if (screenWidth === undefined) {
     return null;
   }
-  if (screenWidth >= mobileBreak) {
-    return <DesktopContainer />;
-  }
-  return <MobileContainer />;
+  // if (screenWidth >= mobileBreak) {
+  //   return <DesktopContainer />;
+  // }
+  return (
+    <MobileMenu webpageRoutes={webpageRoutes}>
+      <SiteTitle />
+    </MobileMenu>
+  );
 }

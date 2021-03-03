@@ -1,12 +1,14 @@
+
 import SubMenu from "./SubMenu.jsx";
 import LinkRoute from "./LinkRoute";
 
 const WebSiteLink = ({link, menuDispatch, subRouteView}) => (
-  <li style={{display: "flex", width: 150}}>
+  <li>
     <LinkRoute
       name={link.title.toUpperCase()}
-      path={`#${link.path}`}
+      path={link.path}
       menuDispatch={menuDispatch}
+      styleAttribute="p-4"
     />
     {link.subRoutes ? (
       <SubMenu
@@ -23,7 +25,7 @@ export default function SiteLinks({navMenuState, menuDispatch, webpageRoutes}) {
 
   if (isMobileMenuOpen) {
     return (
-      <ul style={{position: "absolute", top: 35}}>
+      <ul className="absolute -right-2 top-20 bg_custom-dark flex flex-col items-end">
         {webpageRoutes.map((link) => (
           <WebSiteLink
             key={link.id}

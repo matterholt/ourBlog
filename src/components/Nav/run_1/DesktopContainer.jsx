@@ -1,12 +1,11 @@
 
 import LinkContainer from "./LinkContainer";
-import HomeLinkContainer from "./HomeLinkContainer";
-import SiteName from "../svg/SiteName";
-import PageSubtitle from "../general/PageSubtitle";
-import {useNavMenuController} from "../../hooks/useNavMenuController";
+import SiteName from "../../svg/SiteName";
+import PageSubtitle from "../../general/PageSubtitle";
+import {useNavMenuController} from "../../../hooks/useNavMenuController";
 
-import {webpageRoutes} from "../../routes/index";
-import {initialMenuState} from "../../lib/initialState";
+import {webpageRoutes} from "../../../routes/index";
+import {initialMenuState} from "../../../lib/initialState";
 
 const {routes} = webpageRoutes;
 
@@ -33,12 +32,7 @@ export default function DesktopContainer() {
         menuDispatch={menuDispatch}
       />
 
-      <div className="md:row-start-1 md:col-span-full lg:col-span-1 justify-self-center text-center m-auto bg-white">
-        <HomeLinkContainer>
-          <SiteName styles="m-auto" />
-        </HomeLinkContainer>
-        <PageSubtitle />
-      </div>
+
 
       <LinkContainer
         styleattribute="md:row-start-2 md:col-span-2 lg:col-start-3 lg:row-start-1 items-center"

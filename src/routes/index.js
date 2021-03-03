@@ -1,7 +1,7 @@
 const homeRoute = {
   id: 0,
   path: "/",
-  name: "Home",
+  title: "Home",
   attribute: "primary",
 };
 
@@ -49,44 +49,44 @@ const webpageRoutes = {
     {
       id: 0,
       path: "/",
-      name: "Home",
+      title: "Home",
       attribute: "home",
     },
     {
       id: 1,
       path: "/services",
-      name: "Services",
+      title: "Services",
       attribute: "primary",
     },
     {
       id: 2,
       path: "/about",
-      name: "About",
+      title: "About",
       attribute: "primary",
     },
     {
       id: 3,
       path: "/shop",
-      name: "Shop",
+      title: "Shop",
       attribute: "secondary",
     },
     {
       id: 4,
       path: "/opportunity",
-      name: "Opportunity",
+      title: "Opportunity",
       attribute: "secondary",
     },
     {
       id: 5,
       path: "/blog",
-      name: "Blog",
+      title: "Blog",
       attribute: "primary",
       subRoutes: blogRoutes,
     },
     {
       id: 6,
       path: "/contact",
-      name: "contact",
+      title: "contact",
       attribute: "secondary",
     },
   ],
@@ -96,13 +96,13 @@ const socialRoutes = [
   {
     id: 1,
     path: "/",
-    name: "FaceBook",
+    title: "FaceBook",
     attribute: "primary",
   },
   {
     id: 1,
     path: "/",
-    name: "Instagram",
+    title: "Instagram",
     attribute: "primary",
   },
 ];

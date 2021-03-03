@@ -1,6 +1,7 @@
-const MenuButton = ({children, clickAction, styleAttrubute}) => (
+const MenuButton = ({children, clickAction, className, styleAttrubute}) => (
   <button
-    className="navMenu__button"
+    type="button"
+    className={className}
     style={styleAttrubute}
     onClick={clickAction}
   >

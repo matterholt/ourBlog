@@ -2,24 +2,17 @@
 import MenuButton from "./MenuButton";
 
 // default for main buttons for nav menu
-// capable to add custom style at componet level
-const mainButtonDefault = {
-  width: "150px",
-  padding: "10px",
-  backgroundColor: "#b9b9b9",
-};
+// capable to add custom style at component level
 
+
+const mainButtonDefault = "absolute text-sm right-3 top-10 p-2 border-2 w-15 h-11 rounded-sm";
 // Control when the navigation menu is mounted or not..
 export default function MenuViewControl({isMobileMenuOpen, menuDispatch}) {
   if (!isMobileMenuOpen) {
     return (
       <MenuButton
-        styleAttrubute={{
-          fontWeight: 900,
-          color: "green",
-          ...mainButtonDefault,
-        }}
-        clickAction={() => menuDispatch({type: "openMainMenu"})}
+        className={`${mainButtonDefault} bg_custom-dark text-white`}
+        clickAction={() => menuDispatch({type: "viewMainMenuOnly"})}
       >
         MENU
       </MenuButton>
@@ -27,12 +20,7 @@ export default function MenuViewControl({isMobileMenuOpen, menuDispatch}) {
   } if (isMobileMenuOpen) {
     return (
       <MenuButton
-        styleAttrubute={{
-          ...mainButtonDefault,
-          fontWeight: 500,
-          color: "#fff",
-          backgroundColor: "#686868",
-        }}
+        className={mainButtonDefault}
         clickAction={() => menuDispatch({type: "closeMenus"})}
       >
         CLOSE

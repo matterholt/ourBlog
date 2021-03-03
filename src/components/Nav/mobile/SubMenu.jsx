@@ -4,27 +4,23 @@ import SubMenuControl from "./SubMenuControl";
 const SubLink = ({sublink, menuDispatch}) => (
   <LinkRoute
     name={sublink.title}
-    path={`#${sublink.path}?=${sublink.tag}`}
+    path={sublink.path}
+    query={sublink.tag}
     menuDispatch={menuDispatch}
-    styleAttrubute={"subMenu__item"}
+    styleAttribute="bg-red-100 absolute "
   />
 );
 
 export default function SubMenu({menuDispatch, subroutes, subRouteView}) {
-  const {routeTitle, routes} = subroutes;
+  const { routeTitle, routes } = subroutes;
+  
   return (
     <SubMenuControl
       menuDispatch={menuDispatch}
       routeTitle={routeTitle}
       subRouteView={subRouteView}
     >
-      <div
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 43,
-        }}
-      >
+      <div>
         {routes.map((sublink) => (
           <SubLink
             key={sublink.id}
