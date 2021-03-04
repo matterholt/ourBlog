@@ -1,6 +1,7 @@
 function TitleSvg(props) {
   return (
     <svg
+      className={`${props.styles}`}
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
       width={241}
@@ -8,6 +9,7 @@ function TitleSvg(props) {
       viewBox="0 0 241 58"
       {...props}
     >
+      <title>Root + Blush</title>
       <image
         data-name="root + blush"
         width={241}
@@ -17,6 +19,5 @@ function TitleSvg(props) {
     </svg>
   );
 }
-
 
 export default TitleSvg;

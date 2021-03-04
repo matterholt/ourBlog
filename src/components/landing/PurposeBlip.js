@@ -14,7 +14,7 @@ export default function PurposeBlip() {
     >
       <div className="w-1/4 h-1/4">
         <Image
-          src={"/mainImg/profilePic.png"}
+          src="/mainImg/profilePic.png"
           layout="responsive"
           width={400}
           height={500}

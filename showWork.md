@@ -8,7 +8,8 @@ Making a record of th items and issues that I had to learn when building this pr
 
 3. Sanity has blockContent for data entries this allow the user to have bold, italic and other attributes inside the text. Parsing them out to the screen is a bit much it and object with arrays and types and more arrays. Sanity has a hook that can be npm installed called "block-content-to-react ". There is also some for other framework and good ole HTML. These is easy take the block content and get it to a readable format the fornt end UI.
 
-
+-> REferanc
+https://www.inkoop.io/blog/setup-eslint-for-react-with-prettier-pre-commit-and-vscode/
 
 ## References
 
@@ -19,3 +20,6 @@ Write up about the creation of commenting engine with next and Sanity. by Bryan 
 Vercel code example for setting up [cms-sanity](https://github.com/vercel/next.js/tree/canary/examples/cms-sanity)
 
 A 2019 Sanity blog post using Next.js and Sanity. Built using old NEXT.JS 9.0.3, S[Tutorial: Make a blog with Next.js, React and Sanity](https://www.sanity.io/blog/build-your-own-blog-with-sanity-and-next-js#3-make-a-dynamic-page-template-9e1fb1526b04)
+
+A reference for the proptypes
+[referance proptype](https://blog.logrocket.com/validating-react-component-props-with-prop-types-ef14b29963fc/)
