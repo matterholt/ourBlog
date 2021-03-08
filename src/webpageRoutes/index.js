@@ -107,4 +107,6 @@ const socialRoutes = [
   },
 ];
 
-export { homeRoute, blogRoutes, webpageRoutes, socialRoutes };
+export {
+  homeRoute, blogRoutes, webpageRoutes, socialRoutes,
+};

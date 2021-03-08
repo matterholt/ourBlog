@@ -7,24 +7,28 @@ import MenuButton from "./MenuButton";
 
 const mainButtonDefault = "absolute text-sm right-3 top-10 p-2 border-2 w-15 h-11 rounded-sm";
 // Control when the navigation menu is mounted or not..
-export default function MenuViewControl({isMobileMenuOpen, menuDispatch}) {
+export default function MenuViewControl({isMobileMenuOpen, menuDispatch, children}) {
   if (!isMobileMenuOpen) {
     return (
       <MenuButton
         className={`${mainButtonDefault} bg_custom-dark text-white`}
-        clickAction={() => menuDispatch({type: "viewMainMenuOnly"})}
+        clickAction={() => menuDispatch({type: "openMainMenu"})}
       >
         MENU
       </MenuButton>
     );
-  } if (isMobileMenuOpen) {
+  }
+  if (isMobileMenuOpen) {
     return (
-      <MenuButton
-        className={mainButtonDefault}
-        clickAction={() => menuDispatch({type: "closeMenus"})}
-      >
-        CLOSE
-      </MenuButton>
+      <div className="">
+        <MenuButton
+          className={mainButtonDefault}
+          clickAction={() => menuDispatch({type: "closeMenus"})}
+        >
+          CLOSE
+        </MenuButton>
+        {children}
+      </div>
     );
   }
   return null;

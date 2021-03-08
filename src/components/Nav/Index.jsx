@@ -29,8 +29,11 @@ export default function Nav() {
   //   return <DesktopContainer />;
   // }
   return (
-    <MobileMenu webpageRoutes={webpageRoutes}>
+    <div className="w-screen flex">
+
       <SiteTitle />
-    </MobileMenu>
+      <MobileMenu webpageRoutes={webpageRoutes} />
+    </div>
+
   );
 }
