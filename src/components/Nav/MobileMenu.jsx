@@ -10,21 +10,23 @@ const initialMenuState = {
 };
 
 export default function MobileMenu() {
-
   const [navMenuState, menuDispatch] = useMenuController(initialMenuState);
 
   return (
 
+    <div className="relative mr-10">
       <MenuViewControl
         isMobileMenuOpen={navMenuState.isMobileMenuOpen}
         menuDispatch={menuDispatch}
       >
+
         <MainMenu
           webpageRoutes={webpageRoutes.routes}
           navMenuState={navMenuState}
           menuDispatch={menuDispatch}
         />
       </MenuViewControl>
+    </div>
 
   );
 }

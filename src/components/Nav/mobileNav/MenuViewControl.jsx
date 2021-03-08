@@ -20,7 +20,7 @@ export default function MenuViewControl({isMobileMenuOpen, menuDispatch, childre
   }
   if (isMobileMenuOpen) {
     return (
-      <div className="">
+      <>
         <MenuButton
           className={mainButtonDefault}
           clickAction={() => menuDispatch({type: "closeMenus"})}
@@ -28,7 +28,7 @@ export default function MenuViewControl({isMobileMenuOpen, menuDispatch, childre
           CLOSE
         </MenuButton>
         {children}
-      </div>
+      </>
     );
   }
   return null;

@@ -29,8 +29,7 @@ export default function Nav() {
   //   return <DesktopContainer />;
   // }
   return (
-    <div className="w-screen flex">
-
+    <div className="w-screen flex justify-between">
       <SiteTitle />
       <MobileMenu webpageRoutes={webpageRoutes} />
     </div>

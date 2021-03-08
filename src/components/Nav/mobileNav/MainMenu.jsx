@@ -22,7 +22,7 @@ export default function MainMenu({navMenuState, menuDispatch, webpageRoutes}) {
   const {subRouteView} = navMenuState;
 
   return (
-    <ul style={{position: "absolute", top: 35}}>
+    <ul className="absolute top-24 right-0">
       {webpageRoutes.map((link) => (
         <MenuItem
           key={link.id}
