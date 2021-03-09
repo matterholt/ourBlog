@@ -1,25 +1,9 @@
-import {useState, useEffect} from "react";
-import DesktopMenu from "./DesktopMenu";
+import { useViewScreenSize } from "../../hooks/useViewScreenSize";
 import {webpageRoutes} from "../../webpageRoutes/index";
 
+import DesktopMenu from "./DesktopMenu";
 import SiteTitle from "./home/SiteTitle";
 import MobileMenu from "./MobileMenu";
-
-/*
-
-have the menus initial state be passed at this level,
-
-if desktop the apply desktop settings other wise pass pass the mobile
-
-differences
--  open main menu
-- css style
-
-!!!
-instead of mounting and unmounting between the two desktop and mobile navigation
-just change the style with the state
-
-*/
 
 const DeskTopMenuState = {
   isMobileMenuOpen: true,
@@ -33,22 +17,8 @@ const MobileMenuState = {
 const navContainerStyle = "flex justify-between";
 
 export default function Nav() {
-  const [screenWidth, setScreenWidth] = useState(undefined);
-  const mobileBreak = 768;
+  const {mobileBreak, screenWidth} = useViewScreenSize();
 
-  // make custom hook
-  useEffect(() => {
-    function handleResize() {
-      setScreenWidth(window.innerWidth);
-    }
-
-    if (typeof window !== "undefined") {
-      window.addEventListener("resize", handleResize);
-      handleResize();
-      return () => window.removeEventListener("resize", handleResize);
-    }
-    return null;
-  }, []);
 
   if (screenWidth === undefined) {
     return null;

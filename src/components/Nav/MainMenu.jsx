@@ -3,7 +3,7 @@ import LinkButton from "./LinkButton";
 
 import SubMenu from "./SubMenu";
 
-const listStyle = "flex justify-center items-center";
+const listStyle = "flex justify-between items-center items-center h-16 w-40 ";
 
 const MenuItem = ({link, menuDispatch, subRouteView}) => (
   <li className={listStyle}>
