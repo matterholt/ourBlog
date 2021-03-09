@@ -4,7 +4,7 @@ import WebSiteSVGIcon from "../../svg/WebSiteSVGIcon";
 
 export default function SiteTitle() {
   return (
-    <div>
+    <div className="grid place-items-center bg-red-400">
       <HomeLinkContainer>
         <WebSiteSVGIcon styles="m-auto w-48" />
       </HomeLinkContainer>

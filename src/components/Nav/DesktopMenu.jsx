@@ -16,16 +16,20 @@ export default function DesktopMenu({children, webpageRoutes, initialMenuState})
   );
 
   return (
-    <div className={`w-screen pt-4 items-center grid ${medScreen} ${largeScreen}`}>
+    <div
+      className={`w-screen pt-4 items-center grid ${medScreen} ${largeScreen}`}
+    >
       <MainMenu
-        cssStyleAttribute="flex justify-evenly"
+        cssStyleAttribute="flex justify-evenly md:row-start-2 md:col-span-1 lg:col-start-1 lg:row-start-1 items-center"
         navMenuState={navMenuState}
         menuDispatch={menuDispatch}
         webpageRoutes={primaryLinks}
       />
-      <div className="col-start-2">{children}</div>
+      <div className=" lg:col-start-2 lg:row-start-1 lg:col-span-1 md:col-span-full">
+        {children}
+      </div>
       <MainMenu
-        cssStyleAttribute="flex justify-evenly"
+        cssStyleAttribute="flex justify-evenly md:row-start-2 md:col-span-2 lg:col-start-3 lg:row-start-1 items-center"
         navMenuState={navMenuState}
         menuDispatch={menuDispatch}
         webpageRoutes={secondaryLinks}
