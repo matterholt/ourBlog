@@ -1,11 +1,11 @@
 // disable conflict with NEXT.js
 /* eslint-disable jsx-a11y/anchor-is-valid */
+import PropTypes from "prop-types";
 
 // able to use the link component for the main routes and the sub-routes
 import Link from "next/link";
 
-const anchorStyle = "hover:underline inline-block py-2 px-4 no-underline py-2 px-4"
-
+const anchorStyle = "hover:underline inline-block py-2 px-4 no-underline py-2 px-4";
 
 function LinkRoute({
   linkTitle, path, query = null,
@@ -18,3 +18,10 @@ function LinkRoute({
 }
 
 export default LinkRoute;
+
+LinkRoute.propTypes = {
+  linkTitle: PropTypes.string.isRequired,
+  path: PropTypes.string.isRequired,
+  query: PropTypes.string,
+};
+LinkRoute.defaultProps = {query: null};

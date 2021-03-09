@@ -1,20 +1,11 @@
-import LinkRoute from "./LinkRoute";
-import LinkButton from "./LinkButton";
-import SubMenuControl from "./SubMenuControl";
+import PropTypes from "prop-types";
 
-const SubLink = ({sublink, menuDispatch}) => (
-  <LinkButton menuDispatch={menuDispatch} styleAttribute="bg-red-100 h-16 w-40">
-    <LinkRoute
-      linkTitle={sublink.title}
-      path={sublink.path}
-      query={sublink.tag}
-    />
-  </LinkButton>
-);
+import SubMenuControl from "./SubMenuControl";
+import SubLink from "./SubLink";
 
 export default function SubMenu({menuDispatch, subroutes, subRouteView}) {
-  const { routeTitle, routes } = subroutes;
-  
+  const {routeTitle, routes} = subroutes;
+
   return (
     <SubMenuControl
       menuDispatch={menuDispatch}
@@ -33,3 +24,11 @@ export default function SubMenu({menuDispatch, subroutes, subRouteView}) {
     </SubMenuControl>
   );
 }
+SubMenu.propTypes = {
+  subroutes: PropTypes.shape({
+    routeTitle: PropTypes.string,
+    routes: PropTypes.arrayOf(PropTypes.object),
+  }).isRequired,
+  menuDispatch: PropTypes.func.isRequired,
+  subRouteView: PropTypes.string.isRequired,
+};

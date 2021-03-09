@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import {useMenuController} from "../../hooks/useMenuController";
 
 import MenuViewControl from "./MenuViewControl";
@@ -25,3 +26,14 @@ export default function MobileMenu({children, initialMenuState, webpageRoutes}) 
     </div>
   );
 }
+
+MobileMenu.propTypes = {
+  children: PropTypes.element,
+  initialMenuState: PropTypes.objectOf(
+    PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+  ).isRequired,
+  webpageRoutes: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
+MobileMenu.defaultProps = {
+  children: null,
+};

@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import {useMenuController} from "../../hooks/useMenuController";
 import MainMenu from "./MainMenu";
 
@@ -37,3 +39,29 @@ export default function DesktopMenu({children, webpageRoutes, initialMenuState})
     </div>
   );
 }
+
+DesktopMenu.propTypes = {
+  children: PropTypes.element,
+  webpageRoutes: PropTypes.arrayOf(PropTypes.object).isRequired,
+  initialMenuState: PropTypes.objectOf(
+    PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+  ).isRequired,
+};
+DesktopMenu.defaultProps = {
+  children: null,
+
+};
+/*
+// the shape of the webpageRoutes,,
+  webpageRoutes: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      PropTypes.objectOf(
+        PropTypes.number,
+        PropTypes.string,
+        PropTypes.string,
+        PropTypes.string,
+      )
+    ]),
+  ),
+
+*/

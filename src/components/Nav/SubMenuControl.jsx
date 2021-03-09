@@ -1,6 +1,7 @@
+import PropTypes from "prop-types";
+
 import MenuButton from "./MenuButton";
 import ArrowSVG from "../svg/ArrowDown";
-
 
 const baseSubButton = "grid items-center rounded-sm p-2 border ";
 
@@ -26,9 +27,7 @@ export default function SubMenuControl({
       <div className="relative mr-5">
         <MenuButton
           styleAttribute={`${baseSubButton}`}
-          clickAction={() =>
-            menuDispatch({type: "openMainMenu", menuName: "close"})
-          }
+          clickAction={() => menuDispatch({type: "openMainMenu", menuName: "close"})}
         >
           <ArrowSVG transform="rotate(180)" />
         </MenuButton>
@@ -38,3 +37,13 @@ export default function SubMenuControl({
   }
   return <p>{JSON.stringify(subRouteView)}</p>;
 }
+
+SubMenuControl.propTypes = {
+  menuDispatch: PropTypes.func.isRequired,
+  children: PropTypes.element,
+  routeTitle: PropTypes.string.isRequired,
+  subRouteView: PropTypes.string.isRequired,
+};
+SubMenuControl.defaultProps = {
+  children: null,
+};

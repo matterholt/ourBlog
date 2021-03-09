@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import MenuButton from "./MenuButton";
 
 // default for main buttons for nav menu
@@ -32,3 +34,11 @@ export default function MenuViewControl({isMobileMenuOpen, menuDispatch, childre
   }
   return null;
 }
+MenuViewControl.propTypes = {
+  isMobileMenuOpen: PropTypes.bool.isRequired,
+  menuDispatch: PropTypes.func.isRequired,
+  children: PropTypes.element,
+};
+MenuViewControl.defaultProps = {
+  children: null,
+};

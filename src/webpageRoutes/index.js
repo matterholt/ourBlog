@@ -51,30 +51,35 @@ const webpageRoutes = {
       path: "/",
       title: "Home",
       attribute: "home",
+      subRoutes: null,
     },
     {
       id: 1,
       path: "/services",
       title: "Services",
       attribute: "primary",
+      subRoutes: null,
     },
     {
       id: 2,
       path: "/about",
       title: "About",
       attribute: "primary",
+      subRoutes: null,
     },
     {
       id: 3,
       path: "/shop",
       title: "Shop",
       attribute: "secondary",
+      subRoutes: null,
     },
     {
       id: 4,
       path: "/opportunity",
       title: "Opportunity",
       attribute: "secondary",
+      subRoutes: null,
     },
     {
       id: 5,
@@ -88,6 +93,7 @@ const webpageRoutes = {
       path: "/contact",
       title: "contact",
       attribute: "secondary",
+      subRoutes: null,
     },
   ],
 };

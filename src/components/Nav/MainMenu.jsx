@@ -1,28 +1,8 @@
-import LinkRoute from "./LinkRoute";
-import LinkButton from "./LinkButton";
-
-import SubMenu from "./SubMenu";
-
-const listStyle = "flex justify-between items-center items-center h-16 w-40 ";
-
-const MenuItem = ({link, menuDispatch, subRouteView}) => (
-  <li className={listStyle}>
-    <LinkButton menuDispatch={menuDispatch}>
-      <LinkRoute linkTitle={link.title.toUpperCase()} path={link.path} />
-    </LinkButton>
-
-    {link.subRoutes ? (
-      <SubMenu
-        menuDispatch={menuDispatch}
-        subroutes={link.subRoutes}
-        subRouteView={subRouteView}
-      />
-    ) : null}
-  </li>
-);
+import PropTypes from "prop-types";
+import MenuItem from "./MenuItem";
 
 export default function MainMenu({
-  cssStyleAttribute, navMenuState, menuDispatch, webpageRoutes,
+  cssStyleAttribute = "", navMenuState, menuDispatch, webpageRoutes,
 }) {
   const {subRouteView} = navMenuState;
 
@@ -39,3 +19,16 @@ export default function MainMenu({
     </ul>
   );
 }
+
+MainMenu.propTypes = {
+  cssStyleAttribute: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  menuDispatch: PropTypes.func.isRequired,
+  webpageRoutes: PropTypes.arrayOf(PropTypes.object).isRequired,
+  navMenuState: PropTypes.objectOf(
+    PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+  ).isRequired,
+};
+
+MainMenu.defaultProps = {
+  cssStyleAttribute: "",
+};

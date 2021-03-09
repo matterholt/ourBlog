@@ -1,4 +1,4 @@
-import { useViewScreenSize } from "../../hooks/useViewScreenSize";
+import {useViewScreenSize} from "../../hooks/useViewScreenSize";
 import {webpageRoutes} from "../../webpageRoutes/index";
 
 import DesktopMenu from "./DesktopMenu";
@@ -18,7 +18,6 @@ const navContainerStyle = "flex justify-between";
 
 export default function Nav() {
   const {mobileBreak, screenWidth} = useViewScreenSize();
-
 
   if (screenWidth === undefined) {
     return null;
