@@ -67,11 +67,13 @@ export default function Nav() {
   }
   return (
     <nav className={navContainerStyle}>
-      <SiteTitle />
       <MobileMenu
         webpageRoutes={webpageRoutes}
         initialMenuState={MobileMenuState}
-      />
+      >
+        <SiteTitle />
+
+      </MobileMenu>
     </nav>
   );
 }

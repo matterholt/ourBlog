@@ -1,30 +1,27 @@
+import {useMenuController} from "../../hooks/useMenuController";
+
 import MenuViewControl from "./MenuViewControl";
 import MainMenu from "./MainMenu";
 
-import {webpageRoutes} from "../../webpageRoutes/index";
-import {useMenuController} from "../../hooks/useMenuController";
-
-const initialMenuState = {
-  isMobileMenuOpen: false,
-  subRouteView: "close",
-};
-
-export default function MobileMenu() {
+export default function MobileMenu({children, initialMenuState, webpageRoutes}) {
   const [navMenuState, menuDispatch] = useMenuController(initialMenuState);
 
   return (
-    <div className="relative mr-10">
-      <MenuViewControl
-        isMobileMenuOpen={navMenuState.isMobileMenuOpen}
-        menuDispatch={menuDispatch}
-      >
-        <MainMenu
-          cssStyleAttribute="absolute top-24 right-0 bg-gray-200"
-          webpageRoutes={webpageRoutes.routes}
-          navMenuState={navMenuState}
+    <div className="w-screen flex justify-between ">
+      {children}
+      <div className="relative">
+        <MenuViewControl
+          isMobileMenuOpen={navMenuState.isMobileMenuOpen}
           menuDispatch={menuDispatch}
-        />
-      </MenuViewControl>
+        >
+          <MainMenu
+            cssStyleAttribute="absolute top-24 right-0 bg-gray-200"
+            webpageRoutes={webpageRoutes.routes}
+            navMenuState={navMenuState}
+            menuDispatch={menuDispatch}
+          />
+        </MenuViewControl>
+      </div>
     </div>
   );
 }
