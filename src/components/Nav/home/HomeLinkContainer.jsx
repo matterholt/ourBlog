@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 import Link from "next/link";
 
-import {homeRoute} from "../../../routes/index";
+import {homeRoute} from "../../../webpageRoutes";
 
 export default function HomeLinkContainer({children, styleAttribute}) {
   return (

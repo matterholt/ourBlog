@@ -2,7 +2,8 @@ import Link from "next/link";
 
 import Image from "next/image";
 
-import { blogRoutes } from "../../routes/index";
+import { blogRoutes } from "../../webpageRoutes";
+const {routes} = blogRoutes;
 
 const GlassContainer = ({ children }) => (
   <div className="w-full text-gray-600 text-center p-5 top-1/4 left-0 absolute transition-all translateZUpdate">
@@ -39,7 +40,7 @@ const ImageLink = ({ linkData }) => {
 export default function QuickBogLink() {
   return (
     <div className="container my-20 flex flex-wrap lg:flex-nowrap justify-evenly">
-      {blogRoutes.map((linkData) => (
+      {routes.map((linkData) => (
         <ImageLink key={linkData.id} linkData={linkData} />
       ))}
     </div>

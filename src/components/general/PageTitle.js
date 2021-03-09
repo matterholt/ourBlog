@@ -1,4 +1,4 @@
-import { webpageRoutes } from "../../routes/index";
+import {webpageRoutes} from "../../webpageRoutes";
 
 const { routes } = webpageRoutes;
 

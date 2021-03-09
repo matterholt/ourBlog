@@ -11,7 +11,7 @@ export default function MenuViewControl({isMobileMenuOpen, menuDispatch, childre
   if (!isMobileMenuOpen) {
     return (
       <MenuButton
-        className={`${mainButtonDefault} bg_custom-dark text-white`}
+        styleAttribute={`${mainButtonDefault} bg_custom-dark text-white`}
         clickAction={() => menuDispatch({type: "openMainMenu"})}
       >
         MENU

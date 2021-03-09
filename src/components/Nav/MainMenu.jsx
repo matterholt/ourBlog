@@ -1,16 +1,20 @@
-import LinkRoute from "../LinkRoute";
+import LinkRoute from "./LinkRoute";
 import LinkButton from "./LinkButton";
 
 import SubMenu from "./SubMenu";
 
 const MenuItem = ({link, menuDispatch, subRouteView}) => (
-  <li style={{display: "flex", width: 150}}>
+  <li style={{ display: "flex", width: 150 }}>
+    
+    
     <LinkButton menuDispatch={menuDispatch}>
       <LinkRoute
         linkTitle={link.title.toUpperCase()}
         path={link.path}
       />
     </LinkButton>
+
+
     {link.subRoutes ? (
       <SubMenu
         menuDispatch={menuDispatch}
@@ -21,11 +25,11 @@ const MenuItem = ({link, menuDispatch, subRouteView}) => (
   </li>
 );
 
-export default function MainMenu({navMenuState, menuDispatch, webpageRoutes}) {
+export default function MainMenu({cssStyleAttribute,navMenuState, menuDispatch, webpageRoutes}) {
   const {subRouteView} = navMenuState;
 
   return (
-    <ul className="absolute top-24 right-0 bg-gray-200">
+    <ul className={cssStyleAttribute}>
       {webpageRoutes.map((link) => (
         <MenuItem
           key={link.id}

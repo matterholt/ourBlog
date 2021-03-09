@@ -1,9 +1,9 @@
-import LinkRoute from "../LinkRoute";
+import LinkRoute from "./LinkRoute";
 import LinkButton from "./LinkButton";
 import SubMenuControl from "./SubMenuControl";
 
 const SubLink = ({sublink, menuDispatch}) => (
-  <LinkButton menuDispatch={menuDispatch} styleAttribute="bg-red-100 absolute">
+  <LinkButton menuDispatch={menuDispatch} styleAttribute="bg-red-100">
     <LinkRoute
       linkTitle={sublink.title}
       path={sublink.path}
@@ -21,7 +21,7 @@ export default function SubMenu({menuDispatch, subroutes, subRouteView}) {
       routeTitle={routeTitle}
       subRouteView={subRouteView}
     >
-      <div className="flex flex-col">
+      <div className="flex flex-col absolute top-10 right-0">
         {routes.map((sublink) => (
           <SubLink
             key={sublink.id}

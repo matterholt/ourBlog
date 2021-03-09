@@ -1,5 +1,5 @@
 import MenuButton from "./MenuButton";
-import ArrowSVG from "../../svg/ArrowDown";
+import ArrowSVG from "../svg/ArrowDown";
 
 const baseSubButton = "grid items-center rounded-sm p-2 border";
 
@@ -27,7 +27,9 @@ export default function SubMenuControl({
       >
         <MenuButton
           styleAttribute={baseSubButton}
-          clickAction={() => menuDispatch({type: "viewMainMenuOnly", menuName: "close"})}
+          clickAction={() =>
+            menuDispatch({type: "closeMenus", menuName: "close"})
+          }
         >
           <ArrowSVG transform="rotate(180)" />
         </MenuButton>
