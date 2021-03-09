@@ -3,17 +3,13 @@ import LinkButton from "./LinkButton";
 
 import SubMenu from "./SubMenu";
 
-const MenuItem = ({link, menuDispatch, subRouteView}) => (
-  <li style={{ display: "flex", width: 150 }}>
-    
-    
-    <LinkButton menuDispatch={menuDispatch}>
-      <LinkRoute
-        linkTitle={link.title.toUpperCase()}
-        path={link.path}
-      />
-    </LinkButton>
+const listStyle = "flex justify-center items-center";
 
+const MenuItem = ({link, menuDispatch, subRouteView}) => (
+  <li className={listStyle}>
+    <LinkButton menuDispatch={menuDispatch}>
+      <LinkRoute linkTitle={link.title.toUpperCase()} path={link.path} />
+    </LinkButton>
 
     {link.subRoutes ? (
       <SubMenu
@@ -25,7 +21,9 @@ const MenuItem = ({link, menuDispatch, subRouteView}) => (
   </li>
 );
 
-export default function MainMenu({cssStyleAttribute,navMenuState, menuDispatch, webpageRoutes}) {
+export default function MainMenu({
+  cssStyleAttribute, navMenuState, menuDispatch, webpageRoutes,
+}) {
   const {subRouteView} = navMenuState;
 
   return (

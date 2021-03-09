@@ -5,8 +5,6 @@ import {webpageRoutes} from "../../webpageRoutes/index";
 import SiteTitle from "./home/SiteTitle";
 import MobileMenu from "./MobileMenu";
 
-
-
 /*
 
 have the menus initial state be passed at this level,
@@ -32,6 +30,7 @@ const MobileMenuState = {
   subRouteView: "close",
 };
 
+const navContainerStyle = "flex justify-between";
 
 export default function Nav() {
   const [screenWidth, setScreenWidth] = useState(undefined);
@@ -56,17 +55,18 @@ export default function Nav() {
   }
   if (screenWidth >= mobileBreak) {
     return (
-      <nav className="w-screen flex justify-between">
-        <SiteTitle />
+      <nav className={navContainerStyle}>
         <DesktopMenu
           webpageRoutes={webpageRoutes.routes}
           initialMenuState={DeskTopMenuState}
-        />
+        >
+          <SiteTitle />
+        </DesktopMenu>
       </nav>
     );
   }
   return (
-    <nav className="w-screen flex justify-between">
+    <nav className={navContainerStyle}>
       <SiteTitle />
       <MobileMenu
         webpageRoutes={webpageRoutes}
