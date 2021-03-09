@@ -4,7 +4,7 @@ function MenuButton({
   return (
     <button
       type="button"
-      styleAttribute={`h-5 w-5 ${styleAttribute}`}
+      className={styleAttribute}
       onClick={clickAction}
     >
       {children}

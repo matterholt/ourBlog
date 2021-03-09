@@ -1,7 +1,8 @@
 import MenuButton from "./MenuButton";
 import ArrowSVG from "../svg/ArrowDown";
 
-const baseSubButton = "grid items-center rounded-sm p-2 border";
+
+const baseSubButton = "grid items-center rounded-sm p-2 border ";
 
 export default function SubMenuControl({
   children,
@@ -13,7 +14,7 @@ export default function SubMenuControl({
     return (
       <div className="relative mr-5">
         <MenuButton
-          styleAttribute={`relative ${baseSubButton}`}
+          styleAttribute={`${baseSubButton}`}
           clickAction={() => menuDispatch({type: "openSubMenu", menuName: routeTitle})}
         >
           <ArrowSVG />
@@ -22,16 +23,13 @@ export default function SubMenuControl({
     );
   } if (subRouteView === routeTitle) {
     return (
-      <div
-        style={{display: "flex", flexDirection: "row", position: "relative"}}
-      >
+      <div className="relative mr-5">
         <MenuButton
-          styleAttribute={baseSubButton}
-          clickAction={() =>
-            menuDispatch({type: "closeMenus", menuName: "close"})
-          }
+          styleAttribute={`${baseSubButton}`}
+          clickAction={() => menuDispatch({type: "closeMenus", menuName: "close"})}
         >
           <ArrowSVG transform="rotate(180)" />
+
         </MenuButton>
         {children}
       </div>
