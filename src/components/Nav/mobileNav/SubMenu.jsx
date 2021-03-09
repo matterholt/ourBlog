@@ -1,14 +1,15 @@
-import LinkRoute from "./LinkRoute";
+import LinkRoute from "../LinkRoute";
+import LinkButton from "./LinkButton";
 import SubMenuControl from "./SubMenuControl";
 
 const SubLink = ({sublink, menuDispatch}) => (
-  <LinkRoute
-    name={sublink.title}
-    path={sublink.path}
-    query={sublink.tag}
-    menuDispatch={menuDispatch}
-    styleAttribute="bg-red-100 absolute"
-  />
+  <LinkButton menuDispatch={menuDispatch} styleAttribute="bg-red-100 absolute">
+    <LinkRoute
+      linkTitle={sublink.title}
+      path={sublink.path}
+      query={sublink.tag}
+    />
+  </LinkButton>
 );
 
 export default function SubMenu({menuDispatch, subroutes, subRouteView}) {

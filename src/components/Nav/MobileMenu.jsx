@@ -12,6 +12,7 @@ const initialMenuState = {
 export default function MobileMenu() {
   const [navMenuState, menuDispatch] = useMenuController(initialMenuState);
 
+  
   return (
 
     <div className="relative mr-10">

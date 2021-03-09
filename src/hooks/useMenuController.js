@@ -9,7 +9,7 @@ function menuReducer(state, action) {
     case "closeMenus":
       return {isMobileMenuOpen: false, subRouteView: "close"};
     default:
-      throw Error("action undefined");
+      throw Error(`action undefined of ${action.type}`);
   }
 }
 
