@@ -6,7 +6,7 @@ import MainMenu from "./components/MainMenu";
 
 export default function MobileMenu({children, initialMenuState, webpageRoutes}) {
   const [navMenuState, menuDispatch] = useMenuController(initialMenuState);
-  console.log(initialMenuState);
+
 
   return (
     <div className="w-screen flex justify-between ">

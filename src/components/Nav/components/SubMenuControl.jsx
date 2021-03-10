@@ -15,10 +15,11 @@ export default function SubMenuControl({
     return (
       <div className="relative mr-5">
         <MenuButton
+          buttonName="Open SubMenu"
           styleAttribute={`${baseSubButton}`}
           clickAction={() => menuDispatch({type: "openSubMenu", menuName: routeTitle})}
         >
-          <ArrowSVG />
+          <ArrowSVG title="open subMenu" />
         </MenuButton>
       </div>
     );
@@ -26,10 +27,11 @@ export default function SubMenuControl({
     return (
       <div className="relative mr-5">
         <MenuButton
+          buttonName="Close SubMenu"
           styleAttribute={`${baseSubButton}`}
           clickAction={() => menuDispatch({type: "openMainMenu", menuName: "close"})}
         >
-          <ArrowSVG transform="rotate(180)" />
+          <ArrowSVG transform="rotate(180)" title="close subMenu" />
         </MenuButton>
         {children}
       </div>

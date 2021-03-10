@@ -7,10 +7,9 @@ import MainMenu from "./components/MainMenu";
 const largeScreen = "lg:grid-cols-3 lg:grid-rows-none";
 const medScreen = "md:grid-cols-2 md:grid-rows-2";
 
-export default function DesktopMenu({ children, webpageRoutes, initialMenuState }) {
-  
-  const [navMenuState, menuDispatch] = useMenuController(initialMenuState);
+export default function DesktopMenu({children, webpageRoutes, initialMenuState}) {
   const {routes} = webpageRoutes;
+  const [navMenuState, menuDispatch] = useMenuController(initialMenuState);
 
   const primaryLinks = routes.filter((route) => route.attribute === "primary");
   const secondaryLinks = routes.filter(
@@ -46,13 +45,22 @@ DesktopMenu.propTypes = {
     isMobileMenuOpen: PropTypes.bool,
     subRouteView: PropTypes.string,
   }).isRequired,
+
   webpageRoutes: PropTypes.shape({
     routeTitle: PropTypes.string,
-    routes: PropTypes.array,
+    routes: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number,
+        path: PropTypes.string,
+        title: PropTypes.string,
+        attribute: PropTypes.string,
+        subRoutes: PropTypes.object,
+      }),
+    ),
   }).isRequired,
 };
+
 DesktopMenu.defaultProps = {
   children: null,
 
 };
-

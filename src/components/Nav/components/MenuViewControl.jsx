@@ -12,6 +12,7 @@ export default function MenuViewControl({isMobileMenuOpen, menuDispatch, childre
   if (!isMobileMenuOpen) {
     return (
       <MenuButton
+        buttonName="Open Menu"
         styleAttribute={`${mainButtonDefault} bg_custom-dark text-white`}
         clickAction={() => menuDispatch({type: "openMainMenu"})}
       >
@@ -23,6 +24,7 @@ export default function MenuViewControl({isMobileMenuOpen, menuDispatch, childre
     return (
       <>
         <MenuButton
+          buttonName="Close Menu"
           styleAttribute={mainButtonDefault}
           clickAction={() => menuDispatch({type: "closeMenus"})}
         >

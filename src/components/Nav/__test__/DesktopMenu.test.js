@@ -1,6 +1,8 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from "react";
-import {render} from "@testing-library/react";
+import {render, screen} from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+
 import DesktopMenu from "../DesktopMenu";
 
 // import the web routes js file
@@ -14,18 +16,22 @@ const DeskTopMenuState = {
 
 describe("Test for desktop Navigation Component", () => {
   test("Test Rendering", () => {
-    const {getByText} = render(
+    render(
       <DesktopMenu
-        webpageRoutes={webpageRoutes.routes}
+        webpageRoutes={webpageRoutes}
         initialMenuState={DeskTopMenuState}
       />,
     );
+    userEvent.click(screen.getByText(/menu/i));
 
-    getByText(/service/i);
-    getByText(/about/i);
-    getByText(/blog/i);
-    getByText(/shop/i);
-    getByText(/opportunity/i);
-    getByText(/contact/i);
+    expect(screen.getByText(/close/i)).toBeInTheDocument();
+
+    // might not need to have all this.
+    expect(screen.getByText(/service/i)).toBeInTheDocument();
+    expect(screen.getByText(/about/i)).toBeInTheDocument();
+    expect(screen.getByText(/blog/i)).toBeInTheDocument();
+    expect(screen.getByText(/shop/i)).toBeInTheDocument();
+    expect(screen.getByText(/opportunity/i)).toBeInTheDocument();
+    expect(screen.getByText(/contact/i)).toBeInTheDocument();
   });
 });
