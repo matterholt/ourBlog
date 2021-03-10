@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
 import MenuButton from "./MenuButton";
-import ArrowSVG from "../svg/ArrowDown";
+import ArrowSVG from "../../svg/ArrowDown";
 
 const baseSubButton = "grid items-center rounded-sm p-2 border ";
 

@@ -23,7 +23,7 @@ function MenuItem({link, menuDispatch, subRouteView}) {
         />
       ) : null}
     </li>
-  );
+  ); 
 }
 
 export default MenuItem;

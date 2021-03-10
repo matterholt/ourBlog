@@ -1,11 +1,12 @@
 import PropTypes from "prop-types";
 import {useMenuController} from "../../hooks/useMenuController";
 
-import MenuViewControl from "./MenuViewControl";
-import MainMenu from "./MainMenu";
+import MenuViewControl from "./components/MenuViewControl";
+import MainMenu from "./components/MainMenu";
 
 export default function MobileMenu({children, initialMenuState, webpageRoutes}) {
   const [navMenuState, menuDispatch] = useMenuController(initialMenuState);
+  console.log(initialMenuState);
 
   return (
     <div className="w-screen flex justify-between ">
@@ -29,10 +30,14 @@ export default function MobileMenu({children, initialMenuState, webpageRoutes}) 
 
 MobileMenu.propTypes = {
   children: PropTypes.element,
-  initialMenuState: PropTypes.objectOf(
-    PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-  ).isRequired,
-  webpageRoutes: PropTypes.arrayOf(PropTypes.object).isRequired,
+  initialMenuState: PropTypes.shape({
+    isMobileMenuOpen: PropTypes.bool,
+    subRouteView: PropTypes.string,
+  }).isRequired,
+  webpageRoutes: PropTypes.shape({
+    routeTitle: PropTypes.string,
+    routes: PropTypes.array,
+  }).isRequired,
 };
 MobileMenu.defaultProps = {
   children: null,

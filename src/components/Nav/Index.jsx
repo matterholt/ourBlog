@@ -26,7 +26,7 @@ export default function Nav() {
     return (
       <nav className={navContainerStyle}>
         <DesktopMenu
-          webpageRoutes={webpageRoutes.routes}
+          webpageRoutes={webpageRoutes}
           initialMenuState={DeskTopMenuState}
         >
           <SiteTitle />

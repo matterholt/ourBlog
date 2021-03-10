@@ -1,19 +1,19 @@
 import PropTypes from "prop-types";
 
 import {useMenuController} from "../../hooks/useMenuController";
-import MainMenu from "./MainMenu";
+import MainMenu from "./components/MainMenu";
 
 // tailwind screen styles settings
 const largeScreen = "lg:grid-cols-3 lg:grid-rows-none";
 const medScreen = "md:grid-cols-2 md:grid-rows-2";
 
-export default function DesktopMenu({children, webpageRoutes, initialMenuState}) {
+export default function DesktopMenu({ children, webpageRoutes, initialMenuState }) {
+  
   const [navMenuState, menuDispatch] = useMenuController(initialMenuState);
+  const {routes} = webpageRoutes;
 
-  const primaryLinks = webpageRoutes.filter(
-    (route) => route.attribute === "primary",
-  );
-  const secondaryLinks = webpageRoutes.filter(
+  const primaryLinks = routes.filter((route) => route.attribute === "primary");
+  const secondaryLinks = routes.filter(
     (route) => route.attribute === "secondary",
   );
 
@@ -42,26 +42,17 @@ export default function DesktopMenu({children, webpageRoutes, initialMenuState})
 
 DesktopMenu.propTypes = {
   children: PropTypes.element,
-  webpageRoutes: PropTypes.arrayOf(PropTypes.object).isRequired,
-  initialMenuState: PropTypes.objectOf(
-    PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
-  ).isRequired,
+  initialMenuState: PropTypes.shape({
+    isMobileMenuOpen: PropTypes.bool,
+    subRouteView: PropTypes.string,
+  }).isRequired,
+  webpageRoutes: PropTypes.shape({
+    routeTitle: PropTypes.string,
+    routes: PropTypes.array,
+  }).isRequired,
 };
 DesktopMenu.defaultProps = {
   children: null,
 
 };
-/*
-// the shape of the webpageRoutes,,
-  webpageRoutes: PropTypes.arrayOf(
-    PropTypes.oneOfType([
-      PropTypes.objectOf(
-        PropTypes.number,
-        PropTypes.string,
-        PropTypes.string,
-        PropTypes.string,
-      )
-    ]),
-  ),
 
-*/
