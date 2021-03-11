@@ -2,20 +2,19 @@ import PropTypes from "prop-types";
 import LinkRoute from "./LinkRoute";
 import LinkButton from "./LinkButton";
 
-function SubLink({sublink, menuDispatch}) {
+function SubLink({link, menuDispatch}) {
   return (
-    <LinkButton menuDispatch={menuDispatch} styleAttribute="bg-red-100 h-16 w-40">
-      <LinkRoute
-        linkTitle={sublink.title}
-        path={sublink.path}
-        query={sublink.tag}
-      />
+    <LinkButton
+      menuDispatch={menuDispatch}
+      styleAttribute="bg-red-100 h-16 w-40"
+    >
+      <LinkRoute linkTitle={link.title} path={link.path} query={link.tag} />
     </LinkButton>
   );
 }
 export default SubLink;
 SubLink.propTypes = {
-  sublink: PropTypes.shape({
+  link: PropTypes.shape({
     id: PropTypes.number,
     image: PropTypes.string,
     path: PropTypes.string,

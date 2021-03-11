@@ -6,7 +6,7 @@ const homeRoute = {
 };
 
 const blogRoutes = {
-  routeTitle: "blogSubRoutes",
+  routeTitle: "blogsubRoutes",
   routes: [
     {
       id: 510,

@@ -18,7 +18,7 @@ function MenuItem({link, menuDispatch, subRouteView}) {
       {link.subRoutes ? (
         <SubMenu
           menuDispatch={menuDispatch}
-          subroutes={link.subRoutes}
+          subRoutes={link.subRoutes}
           subRouteView={subRouteView}
         />
       ) : null}

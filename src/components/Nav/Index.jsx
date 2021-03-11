@@ -17,6 +17,8 @@ const MobileMenuState = {
 const navContainerStyle = "flex justify-between";
 
 export default function Nav() {
+
+  // change to if state is desktop dispaly
   const {mobileBreak, screenWidth} = useViewScreenSize();
 
   if (screenWidth === undefined) {

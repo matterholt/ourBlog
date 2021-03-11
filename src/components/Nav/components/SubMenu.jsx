@@ -1,10 +1,15 @@
 import PropTypes from "prop-types";
+import {useRef} from "react";
+
+import {useClickOutside} from "../../../hooks/useClickOutside";
 
 import SubMenuControl from "./SubMenuControl";
 import SubLink from "./SubLink";
 
-export default function SubMenu({menuDispatch, subroutes, subRouteView}) {
-  const {routeTitle, routes} = subroutes;
+export default function SubMenu({menuDispatch, subRoutes, subRouteView}) {
+  const {routeTitle, routes} = subRoutes;
+  const refElem = useRef(null);
+  useClickOutside(refElem, menuDispatch);
 
   return (
     <SubMenuControl
@@ -12,20 +17,16 @@ export default function SubMenu({menuDispatch, subroutes, subRouteView}) {
       routeTitle={routeTitle}
       subRouteView={subRouteView}
     >
-      <div className="flex flex-col absolute -right-5 top-10">
-        {routes.map((sublink) => (
-          <SubLink
-            key={sublink.id}
-            sublink={sublink}
-            menuDispatch={menuDispatch}
-          />
+      <ul ref={refElem} className="flex flex-col absolute -right-5 top-10">
+        {routes.map((link) => (
+          <SubLink key={link.id} link={link} menuDispatch={menuDispatch} />
         ))}
-      </div>
+      </ul>
     </SubMenuControl>
   );
 }
 SubMenu.propTypes = {
-  subroutes: PropTypes.shape({
+  subRoutes: PropTypes.shape({
     routeTitle: PropTypes.string,
     routes: PropTypes.arrayOf(PropTypes.object),
   }).isRequired,

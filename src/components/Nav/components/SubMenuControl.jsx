@@ -1,7 +1,10 @@
 import PropTypes from "prop-types";
 
+import {useRef} from "react";
 import MenuButton from "./MenuButton";
 import ArrowSVG from "../../svg/ArrowDown";
+
+import {useClickOutside} from "../../../hooks/useClickOutside";
 
 const baseSubButton = "grid items-center rounded-sm p-2 border ";
 

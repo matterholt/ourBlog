@@ -1,13 +1,19 @@
 import PropTypes from "prop-types";
+import {useRef} from "react";
 import MenuItem from "./MenuItem";
+
+import {useClickOutside} from "../../../hooks/useClickOutside";
 
 export default function MainMenu({
   cssStyleAttribute = "", navMenuState, menuDispatch, webpageRoutes,
 }) {
   const {subRouteView} = navMenuState;
 
+  const refElem = useRef(null);
+  useClickOutside(refElem, menuDispatch);
+
   return (
-    <ul className={cssStyleAttribute}>
+    <ul ref={refElem} className={cssStyleAttribute}>
       {webpageRoutes.map((link) => (
         <MenuItem
           key={link.id}
