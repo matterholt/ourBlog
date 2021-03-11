@@ -1,50 +1,43 @@
-import {useViewScreenSize} from "../../hooks/useViewScreenSize";
 import {webpageRoutes} from "../../webpageRoutes/index";
+
+import {useScreenView} from "../../hooks/useScreenView";
 
 import DesktopMenu from "./DesktopMenu";
 import SiteTitle from "./home/SiteTitle";
 import MobileMenu from "./MobileMenu";
 
-const DeskTopMenuState = {
-  isMobileMenuOpen: true,
-  subRouteView: "close",
-};
-const MobileMenuState = {
-  isMobileMenuOpen: false,
-  subRouteView: "close",
-};
-
 const navContainerStyle = "flex justify-between";
 
 export default function Nav() {
+  const screenView = useScreenView();
 
-  // change to if state is desktop dispaly
-  const {mobileBreak, screenWidth} = useViewScreenSize();
+  console.log(screenView);
 
-  if (screenWidth === undefined) {
-    return null;
-  }
-  if (screenWidth >= mobileBreak) {
+  if (screenView.screen === undefined) { return (null); }
+
+  if (screenView.screen === "mobile") {
     return (
       <nav className={navContainerStyle}>
         <DesktopMenu
           webpageRoutes={webpageRoutes}
-          initialMenuState={DeskTopMenuState}
+          initialMenuState={screenView.menuState}
         >
           <SiteTitle />
         </DesktopMenu>
       </nav>
     );
   }
-  return (
-    <nav className={navContainerStyle}>
-      <MobileMenu
-        webpageRoutes={webpageRoutes}
-        initialMenuState={MobileMenuState}
-      >
-        <SiteTitle />
-
-      </MobileMenu>
-    </nav>
-  );
+  if (screenView.screen === "desktop") {
+    return (
+      <nav className={navContainerStyle}>
+        <MobileMenu
+          webpageRoutes={webpageRoutes}
+          initialMenuState={screenView.menuState}
+        >
+          <SiteTitle />
+        </MobileMenu>
+      </nav>
+    );
+  }
+  return (null);
 }
