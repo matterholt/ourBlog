@@ -3,14 +3,20 @@ import {useViewScreenSize} from "./useViewScreenSize";
 
 const DeskTopMenuState = {
   screen: "desktop",
-
+  menuState: {
+    isMobileMenuOpen: true,
+    subRouteView: "close",
+  },
 };
 const MobileMenuState = {
   screen: "mobile",
-
+  menuState: {
+    isMobileMenuOpen: false,
+    subRouteView: "close",
+  },
 };
 
-function useScreenView() {
+function useSetScreenView() {
   const {mobileBreak, screenWidth} = useViewScreenSize();
   const [screenView, setView] = useState(undefined);
 
@@ -26,4 +32,4 @@ function useScreenView() {
   return screenView;
 }
 
-export {useScreenView};
+export {useSetScreenView};
