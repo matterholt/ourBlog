@@ -3,17 +3,11 @@ import {useViewScreenSize} from "./useViewScreenSize";
 
 const DeskTopMenuState = {
   screen: "desktop",
-  menuState: {
-    isMobileMenuOpen: true,
-    subRouteView: "close",
-  },
+
 };
 const MobileMenuState = {
   screen: "mobile",
-  menuState: {
-    isMobileMenuOpen: false,
-    subRouteView: "close",
-  },
+
 };
 
 function useScreenView() {
@@ -22,10 +16,10 @@ function useScreenView() {
 
   useEffect(() => {
     if (screenWidth >= mobileBreak) {
-      setView(MobileMenuState);
+      setView(DeskTopMenuState);
     }
     if (screenWidth <= mobileBreak) {
-      setView(DeskTopMenuState);
+      setView(MobileMenuState);
     }
   }, [screenWidth]);
 

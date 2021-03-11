@@ -2,6 +2,9 @@ import PropTypes from "prop-types";
 import {useRef} from "react";
 import MenuItem from "./MenuItem";
 
+//TODO ---> update the click on button
+// bug on clicking on button then open cause clicked out side
+
 import {useClickOutside} from "../../../hooks/useClickOutside";
 
 export default function MainMenu({
