@@ -27,12 +27,17 @@ export default function SubMenuControl({
       </div>
     );
   } if (subRouteView === routeTitle) {
+      const refElem = useRef(null);
+    useClickOutside(refElem, menuDispatch);
+    
     return (
-      <div className="relative mr-5">
+      <div ref={refElem} className="relative mr-5">
         <MenuButton
           buttonName="Close SubMenu"
           styleAttribute={`${baseSubButton}`}
-          clickAction={() => menuDispatch({type: "openMainMenu", menuName: "close"})}
+          clickAction={() =>
+            menuDispatch({type: "openMainMenu", menuName: "close"})
+          }
         >
           <ArrowSVG transform="rotate(180)" title="close subMenu" />
         </MenuButton>

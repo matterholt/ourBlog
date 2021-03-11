@@ -1,16 +1,12 @@
 import PropTypes from "prop-types";
-import {useRef} from "react";
 
-//TODO ---> update the click on button
-import {useClickOutside} from "../../../hooks/useClickOutside";
 
 import SubMenuControl from "./SubMenuControl";
 import SubLink from "./SubLink";
 
 export default function SubMenu({menuDispatch, subRoutes, subRouteView}) {
   const {routeTitle, routes} = subRoutes;
-  const refElem = useRef(null);
-  useClickOutside(refElem, menuDispatch);
+
 
   return (
     <SubMenuControl
@@ -18,7 +14,7 @@ export default function SubMenu({menuDispatch, subRoutes, subRouteView}) {
       routeTitle={routeTitle}
       subRouteView={subRouteView}
     >
-      <ul ref={refElem} className="flex flex-col absolute -right-5 top-10">
+      <ul className="flex flex-col absolute -right-5 top-10">
         {routes.map((link) => (
           <SubLink key={link.id} link={link} menuDispatch={menuDispatch} />
         ))}
