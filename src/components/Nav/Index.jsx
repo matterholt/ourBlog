@@ -1,36 +1,49 @@
-import {useState, useEffect} from "react";
-// import DesktopContainer from "./DesktopContainer";
-import {webpageRoutes} from "../../routes/index";
+import {webpageRoutes} from "../../webpageRoutes/index";
 
+import {useSetScreenView} from "../../hooks/useSetScreenView";
+
+import DesktopMenu from "./DesktopMenu";
 import SiteTitle from "./home/SiteTitle";
 import MobileMenu from "./MobileMenu";
 
+const navContainerStyle = "flex justify-between";
+
+/*
+Future Thought!
+Possible to be one component?
+have a global style for mobile and have it set but
+the useSetScreenView.
+*/
 export default function Nav() {
-  const [screenWidth, setScreenWidth] = useState(undefined);
-  const mobileBreak = 768;
+  const screenView = useSetScreenView();
 
-  useEffect(() => {
-    function handleResize() {
-      setScreenWidth(window.innerWidth);
-    }
 
-    if (typeof window !== "undefined") {
-      window.addEventListener("resize", handleResize);
-      handleResize();
-      return () => window.removeEventListener("resize", handleResize);
-    }
-    return null;
-  }, []);
-
-  if (screenWidth === undefined) {
+  if (screenView === undefined) {
     return null;
   }
-  // if (screenWidth >= mobileBreak) {
-  //   return <DesktopContainer />;
-  // }
-  return (
-    <MobileMenu webpageRoutes={webpageRoutes}>
-      <SiteTitle />
-    </MobileMenu>
-  );
+
+  if (screenView.screen === "desktop") {
+    return (
+      <nav className={navContainerStyle}>
+        <DesktopMenu
+          webpageRoutes={webpageRoutes}
+          initialMenuState={screenView.menuState}
+        >
+          <SiteTitle />
+        </DesktopMenu>
+      </nav>
+    );
+  }
+  if (screenView.screen === "mobile") {
+    return (
+      <nav className={navContainerStyle}>
+        <MobileMenu
+          webpageRoutes={webpageRoutes}
+          initialMenuState={screenView.menuState}
+        >
+          <SiteTitle />
+        </MobileMenu>
+      </nav>
+    );
+  }
 }

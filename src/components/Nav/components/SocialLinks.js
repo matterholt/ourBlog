@@ -1,4 +1,4 @@
-import IconFaceBook from "../svg/IconFaceBook";
+import IconFaceBook from "../../svg/IconFaceBook";
 
 export default function SocialLinks() {
   return (
