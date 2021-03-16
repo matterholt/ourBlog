@@ -1,18 +1,23 @@
+/* eslint-disable react/jsx-filename-extension */
+import {getLatestPostForHome} from "../lib/api";
+
 import MainLanding from "../components/landing/MainLanding";
-import { getLatestPostForHome } from "../lib/api";
+
 
 function Home(props) {
   return (
     <div>
-      <MainLanding post={props.latestPost} />
+      <MainLanding />
+
+
     </div>
   );
 }
 
-export async function getStaticProps({ preview = false }) {
+export async function getStaticProps({preview = false}) {
   const latestPost = await getLatestPostForHome(preview);
   return {
-    props: { latestPost, preview },
+    props: {latestPost, preview},
     revalidate: 1,
   };
 }

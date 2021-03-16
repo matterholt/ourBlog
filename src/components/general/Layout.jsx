@@ -1,6 +1,5 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
-import Header from "./Header";
 import Nav from "../Nav/index";
 
 import Footer from "./Footer";
@@ -24,7 +23,6 @@ export default function Layout({ children }) {
       </Head>
       <div className="bg-white font-sans leading-normal tracking-normal 2xl:mx-20">
         <Nav />
-        <Header />
         <Main>
           <PageTitle routerPathName={router.pathname} />
           {children}
