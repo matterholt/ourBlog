@@ -4,20 +4,15 @@ const variants = {
   hidden: {opacity: 0, x: 100},
   visible: {opacity: 1, x: 0},
 };
-
-
+const BG_style = {backgroundColor: "#292929"};
 
 export default function PurposeBlip() {
   return (
-    <div
-      style={{backgroundColor: "#292929"}}
-      className="container flex justify-evenly my-20 w-auto text-xl text-white h-"
-    >
-
+    <div className="container flex flex-col justify-center self-center h-full text-xl  w-1/4">
+      <h2 className="self-center text-center h-16 font-bold text-3xl">
+        who i am
+      </h2>
       <div className="p-5">
-        <h2 className="mb-10 p-0 self-center text-center h-16 font-bold text-3xl">
-          What I'm about
-        </h2>
         <motion.ul
           transition={{ease: "easeOut", duration: 2}}
           initial="hidden"

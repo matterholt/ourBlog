@@ -14,7 +14,7 @@ export default function SubMenu({menuDispatch, subRoutes, subRouteView}) {
       routeTitle={routeTitle}
       subRouteView={subRouteView}
     >
-      <ul className="flex flex-col absolute -right-5 top-10">
+      <ul className="flex flex-col absolute z-10 -right-5 top-10">
         {routes.map((link) => (
           <SubLink key={link.id} link={link} menuDispatch={menuDispatch} />
         ))}

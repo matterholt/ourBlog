@@ -22,4 +22,8 @@
   .bg_custom-light{
     background-color: rgb(252, 246, 244);
   }
+  .bg-blur{
+    backdrop-filter: blur(2px);
+    background-color: rgb(252, 246, 244, 0.6);
+  }
 }

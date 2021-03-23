@@ -2,14 +2,10 @@ import PropTypes from "prop-types";
 
 import MenuItem from "./MenuItem";
 
-
 export default function MainMenu({
   cssStyleAttribute = "", navMenuState, menuDispatch, webpageRoutes,
 }) {
   const {subRouteView} = navMenuState;
-
-
-
 
   return (
     <ul className={cssStyleAttribute}>

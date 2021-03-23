@@ -1,29 +1,30 @@
 import Layout from "../general/Layout";
 import ProfileImage from "./ProfileImage";
+import CallToAction from "./CallToAction";
 
 const Services = () => (
-  <div className="w-1/3 bg-red-200">
-    <h2>Ready to take a step in Clean living</h2>
-    <ul>
+  <div className="p-10 my-10 flex flex-col justify-between text-xl">
+    <ul className="">
       <li>COMPLIMENTARY TOXIN-FREE BEAUTY CONSULTATION</li>
       <li>HOST A VIRTUAL EVENT WITH ME</li>
-      <li>OIN THE TOXIN-FREE LIVING FACEBOOK GROU</li>
-      <li>GET ACCESS TO THE TOXIN-FREE MASTERLIST</li>
+      <li>JOIN THE TOXIN-FREE LIVING FACEBOOK GROUP</li>
+      <li>GET ACCESS TO THE TOXIN-FREE MASTER-LIST</li>
     </ul>
-    <button type="button"> Sign UP</button>
+    <CallToAction />
   </div>
 );
 
 export default function MainLanding() {
   return (
     <Layout>
-      <div className="flex ">
+      <div className="flex justify-between w-screen relative ">
         <div className="w-1/3">
           <ProfileImage />
         </div>
+
         <Services />
-        <div className="bg-blue-300 w-1/3">
-          <h1>Opportunities</h1>
+        <div className="container flex flex-col justify-center self-center h-full text-xl  w-1/4">
+          <p>asdf</p>
         </div>
       </div>
     </Layout>
