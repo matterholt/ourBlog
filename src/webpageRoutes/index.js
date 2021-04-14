@@ -54,46 +54,11 @@ const webpageRoutes = {
       subRoutes: null,
     },
     {
-      id: 100,
-      path: "/services",
-      title: "Services",
-      attribute: "primary",
-      subRoutes: null,
-    },
-    {
-      id: 200,
-      path: "/about",
-      title: "About",
-      attribute: "primary",
-      subRoutes: null,
-    },
-    {
-      id: 300,
-      path: "/shop",
-      title: "Shop",
-      attribute: "secondary",
-      subRoutes: null,
-    },
-    {
-      id: 400,
-      path: "/opportunity",
-      title: "Opportunity",
-      attribute: "secondary",
-      subRoutes: null,
-    },
-    {
       id: 500,
       path: "/blog",
       title: "Blog",
-      attribute: "primary",
-      subRoutes: blogRoutes,
-    },
-    {
-      id: 600,
-      path: "/contact",
-      title: "contact",
       attribute: "secondary",
-      subRoutes: null,
+      subRoutes: blogRoutes,
     },
   ],
 };
@@ -113,6 +78,4 @@ const socialRoutes = [
   },
 ];
 
-export {
-  homeRoute, blogRoutes, webpageRoutes, socialRoutes,
-};
+export {homeRoute, blogRoutes, webpageRoutes, socialRoutes};
