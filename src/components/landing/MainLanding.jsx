@@ -24,7 +24,7 @@ export default function MainLanding() {
 
         <Services />
         <div className="container flex flex-col justify-center self-center h-full text-xl  w-1/4">
-          <p>asdf</p>
+          <p>need content from client</p>
         </div>
       </div>
     </Layout>

@@ -3,13 +3,10 @@ import {getLatestPostForHome} from "../lib/api";
 
 import MainLanding from "../components/landing/MainLanding";
 
-
 function Home(props) {
   return (
     <div>
-      <MainLanding />
-
-
+      <MainLanding />{" "}
     </div>
   );
 }
